@@ -3,7 +3,7 @@ This project is use to evaluate the performance of ERPNext through a pharmaceuti
 The live link will soon be up.
 
 ## Project Structure
-
+```
 erp-quality-engineering/
 │
 ├── README.md
@@ -39,7 +39,7 @@ erp-quality-engineering/
 ├── package.json
 ├── playwright.config.ts
 └── tsconfig.json
-
+```
 
 ## Quality Engineering Architecture
 
