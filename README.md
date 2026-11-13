@@ -48,7 +48,7 @@ that is used for testing ERPNext in the Greenlife Pharmaceuticals.
 
 It covers the business workflow, test planning and design, exploratory testing, UI and API automation, database validation, performance testing, and quality reporting.
 
-![Greenlife ERPNext Quality Engineering Architecture](../Greenlife-ERPNext-Quality-Engineering-Architecture.svg)
+![Greenlife ERPNext Quality Engineering Architecture](./Greenlife-ERPNext-Quality-Engineering-Architecture.svg)
 
 
 
