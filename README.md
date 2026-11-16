@@ -1,9 +1,10 @@
 # Greenlife ERPNext-analysis
 
+[![CI](https://github.com/mikekoe/ERPNext-analysis/actions/workflows/playwright.yml/badge.svg)](https://github.com/mikekoe/ERPNext-analysis/actions/workflows/playwright.yml)
+
 This project is use to evaluate the performance of ERPNext through a pharmaceutical manufacturing and inventory management case study based on Greenlife Pharmaceuticals Nigeria. The tools used includes Playwright, TypeScript, REST API automation, MariaDB, SQL, CI/CD through GitHub Actions and Apache JMeter
 The live link will soon be up.
 
-![CI](https://github.com/mikekoe/ERPNext-analysis/actions/workflows/playwright.yml/badge.svg)
 
 ## Project Structure
 
