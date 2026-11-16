@@ -1,12 +1,13 @@
 # GREENLIFE PHARMACEUTICALS NIGERIA
+
 # TEST EXECUTION REPORT
 
 **Application:** ERPNext – Greenlife Pharmaceuticals Case Study  
 **System Under Test:** ERPNext  
 **Testing Type:** Exploratory and Functional Testing (Manual)  
-**Business Areas Covered:** Raw Material Management, Inventory Management, Product and BOM Management, Production Planning, Manufacturing Execution, Finished Product Inspection and Release, User Roles and Access 
+**Business Areas Covered:** Raw Material Management, Inventory Management, Product and BOM Management, Production Planning, Manufacturing Execution, Finished Product Inspection and Release, User Roles and Access
 **Report Date:** 15 November 2026  
-**Prepared By:** Michael Adeyeye 
+**Prepared By:** Michael Adeyeye
 **Document ID:** GLP-TEST-REPORT-001  
 **Version:** 0.1 – Initial Draft
 
@@ -57,10 +58,10 @@ Severity guide:
 - **Low:** Minor usability or presentation issue.
 - **Blocker:** Prevents completion of an intended test activity.
 
-| S/N | Module / Area | Problem Identified | Classification | Status |
-|---|---|---|---|---|
-| 1 | Finished Product Inspection and Release | Material Issue was successfully submitted despite a submitted Rejected outgoing Quality Inspection. | Potential High | Needs Investigation |
-| 2 | User Access and Authentication | Unable to authenticate using a separate test account because the email login link did not work. | Test Environment / Authentication Blocker | Blocked |
+| S/N | Module / Area                           | Problem Identified                                                                                  | Classification                            | Status              |
+| --- | --------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------- | ------------------- |
+| 1   | Finished Product Inspection and Release | Material Issue was successfully submitted despite a submitted Rejected outgoing Quality Inspection. | Potential High                            | Needs Investigation |
+| 2   | User Access and Authentication          | Unable to authenticate using a separate test account because the email login link did not work.     | Test Environment / Authentication Blocker | Blocked             |
 
 **Summary:** Three significant findings are documented in this initial report. Two require investigation against the intended business controls. One prevented completion of an access-control test.
 
@@ -243,14 +244,14 @@ Recommended actions:
 
 # 5. Prioritised Action Plan
 
-| Priority | Action | Responsible Area |
-|---|---|---|
-| P1 – High | Investigate and enforce finished-product disposition restrictions before Material Issue or dispatch. | Development / Quality |
-| P1 – High | Define the effective inspection disposition when multiple conflicting inspections exist. | Quality / Development |
-| P2 – Medium | Investigate test-account authentication and local email-link configuration. | ERPNext Administration |
-| P2 – Medium | Complete production-user and inventory-user role-based access testing. | QA / ERPNext Administration |
-| P2 – Medium | Validate batch traceability across procurement, inspection, manufacturing and finished goods. | QA / Inventory / Quality |
-| Ongoing | Retest identified issues and perform regression testing after corrective changes. | QA / Development |
+| Priority    | Action                                                                                               | Responsible Area            |
+| ----------- | ---------------------------------------------------------------------------------------------------- | --------------------------- |
+| P1 – High   | Investigate and enforce finished-product disposition restrictions before Material Issue or dispatch. | Development / Quality       |
+| P1 – High   | Define the effective inspection disposition when multiple conflicting inspections exist.             | Quality / Development       |
+| P2 – Medium | Investigate test-account authentication and local email-link configuration.                          | ERPNext Administration      |
+| P2 – Medium | Complete production-user and inventory-user role-based access testing.                               | QA / ERPNext Administration |
+| P2 – Medium | Validate batch traceability across procurement, inspection, manufacturing and finished goods.        | QA / Inventory / Quality    |
+| Ongoing     | Retest identified issues and perform regression testing after corrective changes.                    | QA / Development            |
 
 Priorities are provisional and should be confirmed through business risk assessment and agreement with the relevant stakeholders.
 
@@ -307,4 +308,3 @@ Before any production-readiness recommendation can be made:
 **Final QA Position:** The current findings demonstrate areas of risk and incomplete verification. A production-readiness decision remains outside the scope of this initial exploratory assessment.
 
 ---
-

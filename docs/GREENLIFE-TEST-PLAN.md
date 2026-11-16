@@ -1,15 +1,15 @@
 # GREENLIFE PHARMACEUTICALS TEST PLAN
 
-| Document Information | Details |
-|---|---|
-| Document ID | GLP-TP-001 |
-| Project | ERPNext Quality Engineering Project |
-| Organisation | Greenlife Pharmaceuticals Nigeria  |
-| System Under Test | ERPNext with proposed pharmaceutical-specific customisations |
-| Version | 1.0 |
-| Status | Approved |
-| Date | 12 November 2026 |
-| Prepared By | Michael Adeyeye |
+| Document Information | Details                                                      |
+| -------------------- | ------------------------------------------------------------ |
+| Document ID          | GLP-TP-001                                                   |
+| Project              | ERPNext Quality Engineering Project                          |
+| Organisation         | Greenlife Pharmaceuticals Nigeria                            |
+| System Under Test    | ERPNext with proposed pharmaceutical-specific customisations |
+| Version              | 1.0                                                          |
+| Status               | Approved                                                     |
+| Date                 | 12 November 2026                                             |
+| Prepared By          | Michael Adeyeye                                              |
 
 ---
 
@@ -23,7 +23,7 @@ The project focuses on two product categories: tablets and capsules.
 
 The testing will cover the standard ERPNext functionality and any proposed pharmaceutical-specific customisations implemented in the test environment.
 
-### 1.1 In-Scope 
+### 1.1 In-Scope
 
 **A. Inventory Management**
 
@@ -146,17 +146,20 @@ Verifies that application features behave according to the documented business r
 
 **GREENLIFE-EXPLORATORY-TESTING-CHARTER-AND-SESSION-LOG**
 
-
 #### 3.2.2 Regression Testing
+
 Regression coverage will prioritise business-critical inventory, manufacturing, quality and traceability workflows. Playwright automation will support repeatable regression checks where appropriate.
 
 #### 3.2.3 Smoke Testing
+
 Performs preliminary checks to establish whether the deployed test environment and its critical application functionality are sufficiently stable for further testing.Coverage includes application accessibility, authentication and basic navigation.
 
 #### 3.2.4 Sanity Testing
+
 Performs focused verification of specific functionality following a change or defect fix.
 
 #### 3.2.5 Negative Testing
+
 Evaluates how the system responds to invalid inputs, prohibited transactions and unexpected user actions.
 Examples:
 
@@ -242,7 +245,7 @@ Coverage includes:
 - Restricted inventory transactions.
 - Restricted quality approval and batch release.
 - Access to sensitive business records.
-**NB** It is not a comprehensive penetration test or security certification.
+  **NB** It is not a comprehensive penetration test or security certification.
 
 #### 3.2.11 Usability Testing
 
@@ -261,15 +264,15 @@ Coverage includes:
 
 Automation will support repeatable validation of selected business workflows and technical interfaces.
 
-| Testing Area | Tool / Technology | Purpose |
-|---|---|---|
-| UI Automation | Playwright + TypeScript | Validate ERPNext user workflows |
-| API Automation | Playwright API + TypeScript | Validate application endpoints |
-| API Exploration | Postman | Investigate endpoints and request/response behaviour |
-| Database Testing | SQL | Validate data integrity and consistency |
-| Performance Testing | Apache JMeter | Evaluate application and API performance |
-| Test Management | GitHub and project documentation | Manage testing artefacts and evidence |
-| CI/CD Execution | GitHub Actions | Run automated QA checks |
+| Testing Area        | Tool / Technology                | Purpose                                              |
+| ------------------- | -------------------------------- | ---------------------------------------------------- |
+| UI Automation       | Playwright + TypeScript          | Validate ERPNext user workflows                      |
+| API Automation      | Playwright API + TypeScript      | Validate application endpoints                       |
+| API Exploration     | Postman                          | Investigate endpoints and request/response behaviour |
+| Database Testing    | SQL                              | Validate data integrity and consistency              |
+| Performance Testing | Apache JMeter                    | Evaluate application and API performance             |
+| Test Management     | GitHub and project documentation | Manage testing artefacts and evidence                |
+| CI/CD Execution     | GitHub Actions                   | Run automated QA checks                              |
 
 Automation will prioritise stable, repeatable and business-critical checks.
 
@@ -279,21 +282,20 @@ Exploratory testing will remain a separate investigative activity and will not b
 
 Testing will be conducted in a dedicated production ERPNext environment.
 
-
 #### 3.4.1 Environment Requirements
 
-| Component | Requirement |
-|---|---|
-| System Under Test | ERPNext |
-| Application Environment | Dedicated development or QA environment |
-| Database | ERPNext-supported database configured for the test environment |
-| Browser | Current supported versions of Chrome and Firefox, with additional browsers where required |
-| UI Automation | Playwright with TypeScript |
-| API Testing | Postman and Playwright API |
-| Database Validation | SQL client with authorised read-only access |
-| Performance Testing | Apache JMeter |
-| Version Control | Git and GitHub |
-| Automation Execution | GitHub Actions where environment access permits |
+| Component               | Requirement                                                                               |
+| ----------------------- | ----------------------------------------------------------------------------------------- |
+| System Under Test       | ERPNext                                                                                   |
+| Application Environment | Dedicated development or QA environment                                                   |
+| Database                | ERPNext-supported database configured for the test environment                            |
+| Browser                 | Current supported versions of Chrome and Firefox, with additional browsers where required |
+| UI Automation           | Playwright with TypeScript                                                                |
+| API Testing             | Postman and Playwright API                                                                |
+| Database Validation     | SQL client with authorised read-only access                                               |
+| Performance Testing     | Apache JMeter                                                                             |
+| Version Control         | Git and GitHub                                                                            |
+| Automation Execution    | GitHub Actions where environment access permits                                           |
 
 Exact ERPNext, Frappe, database, browser and operating system versions will be recorded after the test environment has been provisioned.
 
@@ -332,8 +334,8 @@ Testing may commence when the following conditions have been satisfied:
 11. Test execution responsibilities and defect reporting procedures have been established.
 12. Relevant stakeholders have reviewed the testing approach.
 
-
 ### 4.2 Exit Criteria
+
 1. All in-scope business areas have undergone testing.
 2. All documented user acceptance criteria have been investigated and their outcomes recorded.
 3. Critical business workflows have been tested.
@@ -356,23 +358,23 @@ Testing may commence when the following conditions have been satisfied:
 
 The following risks may affect the quality, completeness or reliability of testing.
 
-| ID | Risk | Potential Impact | Mitigation |
-|---|---|---|---|
-| RISK-001 | Incomplete or ambiguous business requirements | Incorrect interpretation of expected system behaviour | Review requirements with stakeholders and clarify unresolved business rules before acceptance decisions |
-| RISK-002 | Inaccurate or incomplete pharmaceutical-specific customisations | Important business controls may not work as expected | Validate customisations against approved requirements and investigate relevant workflows |
-| RISK-003 | Inadequate test data | Important scenarios may not be investigated | Prepare controlled positive, negative, boundary, duplicate and restricted test data |
-| RISK-004 | Expired or rejected materials are incorrectly made available for production | Potential use of unsuitable materials in manufacturing | Prioritise batch disposition, expiry and material issue controls during exploratory and functional testing |
-| RISK-005 | Incorrect inventory balances | Stock discrepancies and unreliable production planning | Perform transaction-level checks and database consistency validation |
-| RISK-006 | Incomplete batch traceability | Difficulty identifying source materials used in finished products | Validate batch genealogy from raw material receipt through manufacturing and finished goods |
-| RISK-007 | Incorrect BOM or Work Order configuration | Incorrect production planning or material consumption | Verify product, BOM and Work Order relationships |
-| RISK-008 | Unauthorised users can perform restricted activities | Unapproved transactions or batch release | Perform role-based access control and negative testing |
-| RISK-009 | Test environment instability | Interrupted testing and unreliable results | Validate environment availability, monitor failures and document environment-related blockers |
-| RISK-010 | Uncontrolled changes to test data | Inconsistent results and difficult defect reproduction | Maintain identifiable test records and document data changes |
-| RISK-011 | Automation instability or flaky tests | False failures and unreliable regression results | Use stable locators, appropriate waits, controlled test data and investigate intermittent failures |
-| RISK-012 | Performance expectations are undefined | Inability to determine whether performance is acceptable | Agree workload models, response-time targets and capacity expectations before formal performance testing |
-| RISK-013 | Limited stakeholder availability | Delays in requirement clarification and business acceptance | Identify stakeholders and schedule reviews and acceptance activities early |
-| RISK-014 | ERPNext updates or customisation changes during testing | Previously validated functionality may regress | Record environment versions, control changes and execute relevant regression tests |
-| RISK-015 | Incomplete auditability of important transactions | Difficulty investigating business transactions and quality decisions | Validate available transaction histories, user references and audit records |
+| ID       | Risk                                                                        | Potential Impact                                                     | Mitigation                                                                                                 |
+| -------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| RISK-001 | Incomplete or ambiguous business requirements                               | Incorrect interpretation of expected system behaviour                | Review requirements with stakeholders and clarify unresolved business rules before acceptance decisions    |
+| RISK-002 | Inaccurate or incomplete pharmaceutical-specific customisations             | Important business controls may not work as expected                 | Validate customisations against approved requirements and investigate relevant workflows                   |
+| RISK-003 | Inadequate test data                                                        | Important scenarios may not be investigated                          | Prepare controlled positive, negative, boundary, duplicate and restricted test data                        |
+| RISK-004 | Expired or rejected materials are incorrectly made available for production | Potential use of unsuitable materials in manufacturing               | Prioritise batch disposition, expiry and material issue controls during exploratory and functional testing |
+| RISK-005 | Incorrect inventory balances                                                | Stock discrepancies and unreliable production planning               | Perform transaction-level checks and database consistency validation                                       |
+| RISK-006 | Incomplete batch traceability                                               | Difficulty identifying source materials used in finished products    | Validate batch genealogy from raw material receipt through manufacturing and finished goods                |
+| RISK-007 | Incorrect BOM or Work Order configuration                                   | Incorrect production planning or material consumption                | Verify product, BOM and Work Order relationships                                                           |
+| RISK-008 | Unauthorised users can perform restricted activities                        | Unapproved transactions or batch release                             | Perform role-based access control and negative testing                                                     |
+| RISK-009 | Test environment instability                                                | Interrupted testing and unreliable results                           | Validate environment availability, monitor failures and document environment-related blockers              |
+| RISK-010 | Uncontrolled changes to test data                                           | Inconsistent results and difficult defect reproduction               | Maintain identifiable test records and document data changes                                               |
+| RISK-011 | Automation instability or flaky tests                                       | False failures and unreliable regression results                     | Use stable locators, appropriate waits, controlled test data and investigate intermittent failures         |
+| RISK-012 | Performance expectations are undefined                                      | Inability to determine whether performance is acceptable             | Agree workload models, response-time targets and capacity expectations before formal performance testing   |
+| RISK-013 | Limited stakeholder availability                                            | Delays in requirement clarification and business acceptance          | Identify stakeholders and schedule reviews and acceptance activities early                                 |
+| RISK-014 | ERPNext updates or customisation changes during testing                     | Previously validated functionality may regress                       | Record environment versions, control changes and execute relevant regression tests                         |
+| RISK-015 | Incomplete auditability of important transactions                           | Difficulty investigating business transactions and quality decisions | Validate available transaction histories, user references and audit records                                |
 
 ### 5.1 Risk Prioritisation
 
@@ -408,17 +410,17 @@ All identified risks will be documented and reviewed throughout the testing life
 
 ## Document Control and Approval
 
-| Role | Responsibility | Approval Status |
-|---|---|---|
-| Quality Engineer | Prepare and maintain the Test Plan | Approved |
-| Business Representative | Review business scope and acceptance criteria | Approved |
-| ERPNext / Technical Representative | Confirm environment and system configuration | Approved |
-| Project Stakeholder | Review testing outcomes and release recommendation | Approved |
+| Role                               | Responsibility                                     | Approval Status |
+| ---------------------------------- | -------------------------------------------------- | --------------- |
+| Quality Engineer                   | Prepare and maintain the Test Plan                 | Approved        |
+| Business Representative            | Review business scope and acceptance criteria      | Approved        |
+| ERPNext / Technical Representative | Confirm environment and system configuration       | Approved        |
+| Project Stakeholder                | Review testing outcomes and release recommendation | Approved        |
 
 ### Document Revision History
 
-| Version | Date | Description |
-|---|---|---|
-| 1.0 | 12 November 2026 | Initial Test Plan |
+| Version | Date             | Description       |
+| ------- | ---------------- | ----------------- |
+| 1.0     | 12 November 2026 | Initial Test Plan |
 
 ---

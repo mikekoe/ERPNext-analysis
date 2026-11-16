@@ -5,7 +5,7 @@
 **Pharmaceutical Manufacturing and Inventory Management Using an ERP System**
 
 | Document attribute    | Details                                   |
-|-----------------------|-------------------------------------------|
+| --------------------- | ----------------------------------------- |
 | Document ID           | GLP-BRD-001                               |
 | Organization          | Greenlife Pharmaceuticals Nigeria         |
 | Project               | ERPNext System Implementation             |
@@ -25,7 +25,7 @@ The project will evaluate ERPNext standard capabilities alongside proposed pharm
 The following objectives are to be fulfilled:
 
 | ID         | Business objective                     | Expected outcome                                                                                                            |
-|------------|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| ---------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | GL-OBJ-001 | Improve raw-material traceability      | Materials can be traced by supplier, receipt, batch, and stock movement.                                                    |
 | GL-OBJ-002 | Strengthen inventory control           | Material quantities, locations, and stock statuses are accurately maintained.                                               |
 | GL-OBJ-003 | Improve manufacturing record integrity | Production activities and material consumption are documented.                                                              |
@@ -174,7 +174,7 @@ These activities may be considered in a future project phase.
 The following roles are proposed for the quality engineering. They must be given access rights to the actual ERPNext roles and permissions before test execution.
 
 | Stakeholder / role        | Primary responsibility                                                      |
-|---------------------------|-----------------------------------------------------------------------------|
+| ------------------------- | --------------------------------------------------------------------------- |
 | Management                | Business oversight and approval of major operational policies.              |
 | Production Manager        | Production planning, Work Orders, and manufacturing oversight.              |
 | Inventory Manager         | Warehouse control, stock movements, and inventory accuracy.                 |
@@ -285,7 +285,7 @@ The following roles are proposed for the quality engineering. They must be given
 **Requirement Priority Definitions**
 
 | Priority | Meaning                                                                                                                 |
-|----------|-------------------------------------------------------------------------------------------------------------------------|
+| -------- | ----------------------------------------------------------------------------------------------------------------------- |
 | Critical | A failure could compromise material control, product quality, traceability, or a key authorization control.             |
 | High     | A failure could materially affect manufacturing, inventory accuracy, or operational oversight.                          |
 | Medium   | A failure could reduce usability, efficiency, or reporting quality without necessarily compromising a critical control. |
@@ -296,7 +296,7 @@ The following roles are proposed for the quality engineering. They must be given
 **Pharmaceutical Material and Inventory Requirements**
 
 | Requirement ID | Business requirement                                                                                            | Acceptance criteria                                                                                                                      | Priority |
-|----------------|-----------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| -------------- | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | GL-BR-001      | The system shall maintain unique item records for applicable APIs, excipients, and packaging materials.         | Each material has a unique identifier and required classification. Duplicate identifiers are prevented.                                  | High     |
 | GL-BR-002      | The system shall capture batch or lot identification for materials requiring batch control.                     | A receipt cannot be completed without a valid batch identifier for batch-controlled items.                                               | Critical |
 | GL-BR-003      | The system shall record manufacturing and expiry dates for materials where applicable.                          | Required date fields are validated, and invalid date relationships are rejected.                                                         | Critical |
@@ -313,7 +313,7 @@ The following roles are proposed for the quality engineering. They must be given
 **Product and Formulation Requirements**
 
 | Requirement ID | Business requirement                                                                                           | Acceptance criteria                                                                                                | Priority |
-|----------------|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------|
+| -------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------- |
 | GL-BR-013      | The system shall support product master records for tablets and capsules.                                      | Each product has a unique identifier and relevant product attributes.                                              | High     |
 | GL-BR-014      | The system shall support approved Bills of Materials for tablet and capsule products.                          | A production order can reference the applicable approved BOM.                                                      | Critical |
 | GL-BR-015      | The system shall calculate required material quantities from the selected BOM and planned production quantity. | Calculated quantities match the configured BOM quantities and production quantity rules.                           | Critical |
@@ -323,7 +323,7 @@ The following roles are proposed for the quality engineering. They must be given
 **Production Planning and Manufacturing Requirements**
 
 | Requirement ID | Business requirement                                                                                                 | Acceptance criteria                                                                                                 | Priority |
-|----------------|----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|----------|
+| -------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- |
 | GL-BR-018      | The system shall support production planning for tablet and capsule products.                                        | An authorised user can create a production plan or equivalent planning record.                                      | High     |
 | GL-BR-019      | The system shall support Work Order creation.                                                                        | A Work Order contains the selected product, BOM, planned quantity, and relevant production details.                 | Critical |
 | GL-BR-020      | The system shall check material availability before production material issue.                                       | Insufficient available stock is identified and normal issue is prevented or handled according to configured policy. | Critical |
@@ -338,7 +338,7 @@ The following roles are proposed for the quality engineering. They must be given
 **Finished-Goods Inventory Requirements**
 
 | Requirement ID | Business requirement                                                               | Acceptance criteria                                                                                         | Priority |
-|----------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|----------|
+| -------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | -------- |
 | GL-BR-034      | The system shall maintain finished-product batch records.                          | Each finished batch has a unique identifier and relevant product reference.                                 | Critical |
 | GL-BR-035      | The system shall record finished-product manufacturing and expiry dates.           | Required dates are available against the finished-product batch and validated.                              | Critical |
 | GL-BR-036      | The system shall link finished-product batches to their source material batches.   | An authorised user can trace a finished batch back to the relevant material batches consumed in production. | Critical |
@@ -349,7 +349,7 @@ The following roles are proposed for the quality engineering. They must be given
 **7.3. Non-Functional Requirements**
 
 | Requirement ID | Category            | Requirement                                                                                           | Acceptance criteria                                                                            |
-|----------------|---------------------|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| -------------- | ------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | GL-NFR-001     | Performance         | Common manufacturing and inventory transactions should respond within agreed performance targets.     | Response-time targets are documented and verified under representative workloads.              |
 | GL-NFR-002     | Security            | Access to sensitive manufacturing and quality records must be restricted.                             | Unauthorised access attempts are denied.                                                       |
 | GL-NFR-003     | Data integrity      | The system must preserve the accuracy and consistency of business records.                            | Tested transactions do not produce unexplained or inconsistent data.                           |
@@ -407,7 +407,7 @@ This BRD will serve as the foundation for a risk-based quality engineering proce
 The following testing layers will be used:
 
 | Testing layer                   | Tool / approach                   | Purpose                                                             |
-|---------------------------------|-----------------------------------|---------------------------------------------------------------------|
+| ------------------------------- | --------------------------------- | ------------------------------------------------------------------- |
 | Functional testing              | Manual testing                    | Verify business rules and end-to-end workflows.                     |
 | UI automation                   | Playwright with TypeScript        | Automate critical ERPNext user workflows.                           |
 | API testing                     | Postman / Newman                  | Validate API responses, business rules, and transaction behaviour.  |
@@ -422,7 +422,7 @@ The following testing layers will be used:
 The following approvals are proposed before the requirements baseline is treated as business-approved.
 
 | Role                           | Approval responsibility                                      | Status   |
-|--------------------------------|--------------------------------------------------------------|----------|
+| ------------------------------ | ------------------------------------------------------------ | -------- |
 | Manager                        | Confirms business scope and process requirements.            | Approved |
 | ERP / Technical Representative | Confirms ERPNext capabilities and customisation feasibility. | Pending  |
 | Quality Assurance Tester       | Confirms requirements are testable and traceable.            | Pending  |
@@ -430,5 +430,5 @@ The following approvals are proposed before the requirements baseline is treated
 **22. Change History**
 
 | **Version** | **Date**         | **Author**          | **Description**                                                                                                 |
-|-------------|------------------|---------------------|-----------------------------------------------------------------------------------------------------------------|
+| ----------- | ---------------- | ------------------- | --------------------------------------------------------------------------------------------------------------- |
 | 1.0         | 11 November 2026 | Quality Engineering | Initial pharmaceutical manufacturing and inventory requirements baseline for Greenlife Pharmaceuticals Nigeria. |
