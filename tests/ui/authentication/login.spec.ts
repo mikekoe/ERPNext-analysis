@@ -8,7 +8,7 @@ test.describe('ERPNext Authentication', () => {
     await page.goto('/login');
   });
 
-  test('should authenticate an authorised ERPNext user', async ({ page }) => {
+  test('An ERPNext user should login successfully', async ({ page }) => {
     const username = process.env.ERP_USERNAME;
     const password = process.env.ERP_PASSWORD;
     expect(username, 'ERP_USERNAME must be configured.').toBeTruthy();
