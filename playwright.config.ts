@@ -15,7 +15,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -38,10 +38,18 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'setup',
+      testMatch: '**/auth.setup.ts',
     },
-
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: '.auth/user.json',
+      },
+      dependencies: ['setup'],
+      testIgnore: '**/auth.setup.ts',
+    },
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'] },
@@ -72,11 +80,11 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://greenlife.localhost:8000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
+
+/* Run your local dev server before starting the tests */
+// webServer: {
+//   command: 'npm run start',
+//   url: 'http://greenlife.localhost:8000',
+//   reuseExistingServer: !process.env.CI,
+// },
