@@ -1,5 +1,5 @@
 
-![GREENLIFE ERPNEXT AT A GLANCE](./assets/Greenlife_ERPNext_QA_Engineering.png) 
+![GreenLife ERPNext at a glance](./assets/Greenlife_ERPNext_QA_Engineering.png) 
 
 
 # Greenlife Pharmaceuticals Limited ERPNext Quality Assurance Engineering
