@@ -1,6 +1,6 @@
-<p align="center">
-  <img src="assets/Greenlife_ERPNext_QA_Engineering.png" alt="Greenlife Pharmaceuticals Limited ERPNext Quality Assurance Engineering: item creation, purchase receipt, stock transfer, BOM, work order, manufacture and finished goods" width="100%">
-</p>
+
+![GREENLIFE ERPNEXT AT A GLANCE](./assets/Greenlife_ERPNext_QA_Engineering.png) 
+
 
 # Greenlife Pharmaceuticals Limited ERPNext Quality Assurance Engineering
 
