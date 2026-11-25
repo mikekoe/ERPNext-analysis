@@ -31,7 +31,7 @@ test('Create and start a Work Order for a finished product', async ({ page }) =>
   // Set production quantity and select the finished product.
   await expect(page.getByRole('tabpanel', { name: 'Production Item' })).toBeVisible();
 
-  await page.getByRole('textbox').fill('2');
+  await page.getByRole('textbox').fill('3');
 
   const productionItem = page.getByRole('combobox').nth(2);
   await productionItem.fill('TAB');
@@ -86,7 +86,6 @@ test('Create and start a Work Order for a finished product', async ({ page }) =>
   const requiredItemsGrid = requiredItemsField.locator('.form-grid');
 
   const apiRow = requiredItemsGrid.locator('.grid-row[data-idx="1"]');
-
   const packagingRow = requiredItemsGrid.locator('.grid-row[data-idx="2"]');
 
   await expect(apiRow).toContainText('API-001');
@@ -146,4 +145,123 @@ test('Create and start a Work Order for a finished product', async ({ page }) =>
       exact: true,
     })
     .click();
+
+  await expect(page.getByRole('heading', { name: 'Select Quantity' })).toBeHidden();
+
+  // ====== Configure the generated Material Transfer for Manufacture ========/
+  const itemsGrid = page.locator('.frappe-control[data-fieldname="items"]');
+  const firstItemRow = itemsGrid.locator('.grid-row[data-idx="1"]');
+  const secondItemRow = itemsGrid.locator('.grid-row[data-idx="2"]');
+
+  const barcode = page.locator('input[data-fieldname="barcode"]:visible');
+  const targetWarehouse = page.locator('input[data-fieldname="t_warehouse"]:visible');
+
+  // Configure each item row individually.
+  for (const row of [firstItemRow, secondItemRow]) {
+    // Open the current row's expanded editor.
+    await expect(row).toBeVisible();
+
+    // Expand the current item row.
+    await row.locator('.data-row > div:nth-child(8)').click();
+
+    await expect(page.getByRole('button', { name: 'Collapse', exact: true })).toBeVisible();
+
+    // Let Frappe finish moving focus to the first field.
+    await expect(barcode).toBeFocused();
+    await expect(targetWarehouse).toHaveValue('Work In Progress - GP');
+    await targetWarehouse.click();
+    await expect(targetWarehouse).toBeFocused();
+    await targetWarehouse.press('ControlOrMeta+A');
+    await targetWarehouse.press('Backspace');
+    const option = page
+      .locator('[role="listbox"]:visible')
+      .getByRole('option', { name: 'Finished Goods - GP', exact: true });
+    await expect(option).toBeVisible({ timeout: 10000 });
+    await option.click();
+    await expect(targetWarehouse).toHaveValue('Finished Goods - GP');
+
+    // Close the current row before opening the next.
+    await page.getByRole('button', { name: 'Collapse', exact: true }).click();
+
+    // Do not open the next row until the editor has closed.
+    await expect(page.locator('#freeze')).toBeHidden();
+  }
+
+  await page.getByRole('button', { name: 'Save' }).click();
+  await expect(page).toHaveURL(/MAT-STE-\d{4}-\d+/);
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await expect(page.getByRole('button', { name: 'Yes' })).toBeVisible();
+  await page.getByRole('button', { name: 'Yes' }).click();
+
+  // Return to the Work Order linked to this Material Transfer.
+  await page.getByRole('link', { name: /^MFG-WO-/ }).click();
+
+  await expect(page.getByRole('button', { name: 'Finish', exact: true })).toBeVisible();
+
+  await page.getByRole('button', { name: 'Finish', exact: true }).click();
+
+  await expect(page.getByRole('heading', { name: 'Select Quantity' })).toBeVisible();
+
+  await page.getByRole('button', { name: 'Create', exact: true }).click();
+
+  // ==== Redirect to Manufacture stock entry to complete work order ======/
+  await expect(page.getByRole('tabpanel', { name: 'Details' })).toBeVisible();
+
+  // Locate the third item row in the Manufacture Stock Entry.
+  const manufactureItemsGrid = page.locator('.frappe-control[data-fieldname="items"]');
+
+  const thirdItemRow = manufactureItemsGrid.locator('.grid-row[data-idx="3"]');
+
+  // Expand the third row to configure its Batch No.
+  await expect(thirdItemRow).toBeVisible();
+
+  await thirdItemRow.locator('.data-row > div:nth-child(8)').click();
+
+  await expect(page.getByRole('button', { name: 'Collapse', exact: true })).toBeVisible();
+
+  //barcode is auto-focused upon expanding the third row
+  await expect(barcode).toBeFocused();
+
+  // Verify the "Use Serial No / Batch Fields" checkbox is enabled.
+  const serialBatchFields = page.getByRole('checkbox', {
+    name: 'Use Serial No / Batch Fields',
+  });
+
+  await expect(serialBatchFields).toBeVisible();
+  await expect(serialBatchFields).toBeChecked();
+
+  const batchNo = page.locator('input[data-fieldname="batch_no"]:visible');
+
+  await expect(batchNo).toBeVisible();
+  await batchNo.click();
+
+  const batchSuggestion = page
+    .locator('[role="listbox"]:visible')
+    .getByRole('option')
+    .filter({ hasText: 'GLP-TAB-001' })
+    .first();
+
+  await expect(batchSuggestion).toBeVisible();
+  await batchSuggestion.click();
+  await expect(batchNo).toHaveValue('GLP-TAB-001');
+  await page.getByRole('button', { name: 'Collapse', exact: true }).click();
+  await expect(page.locator('#freeze')).toBeHidden();
+
+  // Save the Manufacture Stock Entry.
+  await page.getByRole('button', { name: 'Save', exact: true }).click();
+
+  await expect(page).toHaveURL(/MAT-STE-\d{4}-\d+/);
+
+  // Submit the Manufacture Stock Entry.
+  await page.getByRole('button', { name: 'Submit', exact: true }).click();
+
+  await expect(page.getByRole('button', { name: 'Yes', exact: true })).toBeVisible();
+
+  await page.getByRole('button', { name: 'Yes', exact: true }).click();
+
+  // Return to the linked Work Order.
+  await page.getByRole('link', { name: /^MFG-WO-/ }).click();
+
+  // Verify that the Work Order is completed.
+  await expect(page.locator('.page-head').getByText('Completed', { exact: true })).toBeVisible();
 });

@@ -30,9 +30,9 @@ export default defineConfig({
     baseURL: process.env.BASE_URL || 'http://greenlife.localhost:8000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    trace: 'on', //'on-first-retry',//
+    screenshot: 'on', //'only-on-failure',//
+    video: 'on', //'retain-on-failure',//
   },
 
   /* Configure projects for major browsers */

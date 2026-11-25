@@ -1,0 +1,3106 @@
+{
+  "info": {
+    "_postman_id": "6a35f156-d465-478d-b936-7fdc39b13ae0",
+    "name": "Greenlife ERPNext API analysis",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54218083",
+    "_collection_link": "https://go.postman.co/collection/54218083-6a35f156-d465-478d-b936-7fdc39b13ae0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Authentication and Onboarding",
+      "item": [
+        {
+          "name": "Authentication via API",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst username = response.message;\n\npm.test(`Greenlife ERPNext username is ${username}`, function () {\n    pm.expect(username).to.be.a('string').and.not.be.empty;\n});\n\nconsole.log(\"The username of this platform is \" + username);\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.auth.get_logged_user?",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.auth.get_logged_user"],
+              "query": [
+                {
+                  "key": "",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Authentication with Username and Password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test(\"The user logins successfully\", () => {\n    pm.expect(response.message).to.eql(\"Logged In\");\n});\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "usr",
+                  "value": "{{login_username}}",
+                  "type": "text"
+                },
+                {
+                  "key": "pwd",
+                  "value": "{{login_password}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/login",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve and validate GreenlIfe Pharma details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const record = pm.response.json().data;\n\nconst expectedCompany = pm.environment.get('expected_company');\n\n\npm.test('The organization we are performing testing for is ' + record.default_company, function () {\n    pm.expect(expectedCompany).to.be.a('string').and.not.be.empty;\n    pm.expect(record.default_company).to.eql(expectedCompany);\n});\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Length",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Global Defaults/Global Defaults",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Global Defaults", "Global Defaults"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify Authenticated User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test(\"Session identifies the logged in user\", () => {\n    pm.expect(response.message).to.eql(\n        pm.environment.get(\"login_username\")\n    );\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.auth.get_logged_user",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.auth.get_logged_user"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test(\"Logout successful\", () => {\n    pm.expect(response.message).to.exist;\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200 or 202\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 202]);\n});\n\npm.test('Response time is less than 2000ms', function () {\n    pm.expect(pm.response.responseTime).to.be.below(2000);\n});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inventory",
+      "item": [
+        {
+          "name": "Get Item List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();\n\npm.test('Every item has the following requested fields: item name, item group, stock unit of measure, batch number, and serial number', () => {\n    body.data.forEach(item => {\n        pm.expect(item).to.include.all.keys(\n            'name', 'item_name', 'item_group', 'stock_uom', 'has_batch_no', 'has_serial_no'\n        );\n    });\n});\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Item?fields=[\"name\",\"item_name\",\"item_group\", \"stock_uom\",\"has_batch_no\",\"has_serial_no\",\"inspection_required_before_purchase\"]&limit_page_length=50&Accept=application/json&Content-Type=application/json",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Item"],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "[\"name\",\"item_name\",\"item_group\", \"stock_uom\",\"has_batch_no\",\"has_serial_no\",\"inspection_required_before_purchase\"]"
+                },
+                {
+                  "key": "limit_page_length",
+                  "value": "50"
+                },
+                {
+                  "key": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get available Warehouses",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst warehouses = response.data;\n\n\npm.test('Response contains a group of warehouses', function () {\n    pm.expect(warehouses).to.be.an('array');\n});\n\npm.test('Each warehouse contains essential details', function () {\n    warehouses.forEach(function (warehouse) {\n        pm.expect(warehouse.name).to.be.a('string').and.not.be.empty;\n        pm.expect(warehouse.warehouse_name).to.be.a('string').and.not.be.empty;\n        pm.expect(warehouse.company).to.be.a('string').and.not.be.empty;\n    });\n});\n\npm.test(`There are ${warehouses.length} warehouses in the system`, function (){\n    pm.expect(warehouses.length).to.be.above(0);\n});\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Warehouse?fields=[\"name\",\"warehouse_name\",\"company\",\"parent_warehouse\",\"is_group\"]",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Warehouse"],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "[\"name\",\"warehouse_name\",\"company\",\"parent_warehouse\",\"is_group\"]"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve available items",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "\nconst response = pm.response.json();\nconst bins = response.data;\n\n\npm.test(' These response contains a list of stock records', function () {\n    pm.expect(bins).to.be.an('array');\n});\n\npm.test('Each stock record contains essential details', function () {\n    bins.forEach(function (bin) {\n        pm.expect(bin.name).to.be.a('string').and.not.be.empty;\n        pm.expect(bin.item_code).to.be.a('string').and.not.be.empty;\n        pm.expect(bin.warehouse).to.be.a('string').and.not.be.empty;\n\n        pm.expect(bin.actual_qty).to.be.a('number');\n        pm.expect(bin.reserved_qty).to.be.a('number');\n        pm.expect(bin.projected_qty).to.be.a('number');\n    });\n});\n\npm.test(`There are ${bins.length} stock records returned belonging to all items`, function () {\n    pm.expect(bins.length).to.be.above(0);\n});\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Length",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Bin?fields=[\"name\",\"item_code\",\"warehouse\",\"actual_qty\",\"reserved_qty\",\"projected_qty\"]",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Bin"],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "[\"name\",\"item_code\",\"warehouse\",\"actual_qty\",\"reserved_qty\",\"projected_qty\"]"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create a new item",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst item = response.data;\n\npm.test(\"PKG-003 created successfully\", function () {\n});\n\nif (item.item_code === \"PKG-003\") {\n    pm.environment.set(\"packaging_item_code\", item.item_code);\n}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item_code\": \"PKG-003\",\n  \"item_name\": \"Blister Packaging Material - Batch Tracked\",\n  \"item_group\": \"Primary Packaging material\",\n  \"stock_uom\": \"roll\",\n  \"is_stock_item\": 1,\n  \"has_batch_no\": 1,\n  \"has_serial_no\": 0,\n  \"include_item_in_manufacturing\": 1,\n  \"create_new_batch\": 1,\n   \"item_defaults\": [\n    {\n        \"company\": \"GreenLife Pharma\",\n        \"default_warehouse\": \"Packaging Materials - GP\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Item",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Item"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Supplier",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Length",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Supplier?fields=[\"name\",\"supplier_name\",\"supplier_type\"]",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Supplier"],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "[\"name\",\"supplier_name\",\"supplier_type\"]"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create a Single batch number",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Batch",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Batch"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Batch numbers for Multiple items",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "\n\nconst batchResponse = pm.response.json();\n\nconst excBatchNo = pm.environment.get('exc_batch_no');\nconst capBatchNo = pm.environment.get('cap_batch_no');\n\npm.test(\n    `The expected batches have been created: ${excBatchNo} and ${capBatchNo}`,\n    function () {\n        pm.expect(batchResponse.message).to.be.an('array');\n        pm.expect(batchResponse.message).to.include(excBatchNo);\n        pm.expect(batchResponse.message).to.include(capBatchNo);\n    }\n);\n\npm.test(\"The response body is valid JSON\", function () {\n    pm.expect(batchResponse).to.be.an('object');\n    pm.expect(batchResponse).to.have.property('message');\n});\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"docs\": [\n        {\n            \"doctype\": \"Batch\",\n            \"item\": \"{{exc_item_code}}\",\n            \"batch_id\": \"{{exc_batch_no}}\"\n        },\n        {\n            \"doctype\": \"Batch\",\n            \"item\": \"{{cap_item_code}}\",\n            \"batch_id\": \"{{cap_batch_no}}\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.client.insert_many",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.client.insert_many"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve all Batch information",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Batch?fields=[\"name\",\"item\",\"expiry_date\",\"disabled\"]&limit_page_length=1000",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Batch"],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "[\"name\",\"item\",\"expiry_date\",\"disabled\"]"
+                },
+                {
+                  "key": "limit_page_length",
+                  "value": "1000"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve material transfer records",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test('Stock Entry records retrieved successfully', function () {\n    pm.response.to.have.status(200);\n    pm.expect(response.data).to.be.an('array');\n});\n\npm.test('All retrieved records are Material Transfers', function () {\n    response.data.forEach(entry => {\n        pm.expect(entry.stock_entry_type).to.eql('Material Transfer');\n    });\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Stock Entry?filters=[[\"stock_entry_type\",\"=\",\"Material Transfer\"]]&fields=[\"name\",\"stock_entry_type\",\"purpose\",\"work_order\",\"from_warehouse\",\"to_warehouse\",\"docstatus\"]",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Stock Entry"],
+              "query": [
+                {
+                  "key": "filters",
+                  "value": "[[\"stock_entry_type\",\"=\",\"Material Transfer\"]]"
+                },
+                {
+                  "key": "fields",
+                  "value": "[\"name\",\"stock_entry_type\",\"purpose\",\"work_order\",\"from_warehouse\",\"to_warehouse\",\"docstatus\"]"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create a Material Transfer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "\nconst response = pm.response.json();\n\npm.test('Material Transfer is created successfully', function () {\n    pm.expect(response.data).to.exist;\n    pm.expect(response.data.name).to.exist;\n});\n\npm.test('Stock Entry type is Material Transfer', function () {\n    pm.expect(response.data.stock_entry_type).to.eql('Material Transfer');\n});\n\npm.test('Item details are correct', function () {\n    const item = response.data.items.find(\n        row => row.item_code === pm.environment.get('transfer_item_code')\n    );\n\n    pm.expect(item).to.exist;\n    pm.expect(Number(item.qty)).to.eql(\n        Number(pm.environment.get('transfer_qty'))\n    );\n    pm.expect(item.s_warehouse).to.eql('Raw materials - GP');\n    pm.expect(item.t_warehouse).to.eql('Work In Progress - GP');\n});\n\n// Save the generated Stock Entry ID for subsequent requests\npm.environment.set('stock_entry_id', response.data.name);\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"stock_entry_type\": \"Material Transfer\",\n    \"purpose\": \"Material Transfer\",\n    \"company\": \"{{expected_company}}\",\n    \"items\": [\n        {\n            \"item_code\": \"{{transfer_item_code}}\",\n            \"qty\": {{transfer_qty}},\n            \"s_warehouse\": \"Raw materials - GP\",\n            \"t_warehouse\": \"Work in Progress - GP\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Stock Entry",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Stock Entry"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve saved Material Transfer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "\nconst response = pm.response.json();\nconst stockEntry = response.data;\n\npm.test('Latest Stock Entry retrieved successfully', function () {\n    pm.response.to.have.status(200);\n    pm.expect(stockEntry.name).to.eql(\n        pm.environment.get('stock_entry_id')\n    );\n    pm.expect(stockEntry.docstatus).to.eql(0);\n});\n\n// Save the latest document, including its modified timestamp\npm.environment.set(\n    'stock_entry_doc',\n    JSON.stringify(stockEntry)\n);\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Stock Entry/{{stock_entry_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Stock Entry", "{{stock_entry_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Material Transfer Stock entry",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "\nconst response = pm.response.json();\nconst stockEntry = response.data;\n\npm.test('Draft Material Transfer updated successfully', function () {\n    pm.expect(stockEntry.name).to.eql(\n        pm.environment.get('stock_entry_id')\n    );\n});\n\npm.test('Material Transfer remains a Draft', function () {\n    pm.expect(stockEntry.docstatus).to.eql(0);\n});\n\npm.test('Item quantity is updated to 20', function () {\n    const item = stockEntry.items.find(\n        row => row.item_code === 'EXC-003'\n    );\n\n    pm.expect(item).to.exist;\n    pm.expect(Number(item.qty)).to.eql(20);\n});\n\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "\n{\n    \"items\": [\n        {\n            \"item_code\": \"EXC-003\",\n            \"qty\": 20,\n            \"s_warehouse\": \"Raw materials - GP\",\n            \"t_warehouse\": \"Work In Progress - GP\"\n        }\n    ]\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Stock Entry/{{stock_entry_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Stock Entry", "{{stock_entry_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submit the Material Transfer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "\nconst response = pm.response.json();\nconst stockEntry = response.message;\n\npm.test('Material Transfer submitted successfully', function () {\n    pm.expect(stockEntry).to.exist;\n    pm.expect(stockEntry.name).to.eql(\n        pm.environment.get('stock_entry_id')\n    );\n});\n\npm.test('Material Transfer status is Submitted', function () {\n    pm.expect(stockEntry.docstatus).to.eql(1);\n});\n\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "\n\n{\n    \"doc\": {{stock_entry_doc}}\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.client.submit",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.client.submit"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve the Submitted Material transfer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "\nconst response = pm.response.json();\nconst stockEntry = response.data;\n\npm.test('Material transfer details are retrieved successfully', function () {\n\n    pm.expect(stockEntry.name).to.eql(\n        pm.environment.get('stock_entry_id')\n    );\n});\n\npm.test('Retrieved Material Transfer is submitted', function () {\n    pm.expect(stockEntry.docstatus).to.eql(1);\n});\n\n\n\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Stock Entry/{{stock_entry_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Stock Entry", "{{stock_entry_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel the Submitted Material Transfer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst stockEntry = response.message;\n\npm.test('Material Transfer cancelled successfully', function () {\n    pm.expect(stockEntry.name).to.eql(pm.environment.get('stock_entry_id'));\n    pm.expect(stockEntry.docstatus).to.eql(2);\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doctype\": \"Stock Entry\",\n    \"name\": \"{{stock_entry_id}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.client.cancel",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.client.cancel"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Material transfer in draft mode",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test('Draft Material Transfer deleted successfully', function () {\n    pm.response.to.have.status(202);\n});\n\npm.test('Material transfer deletion successful', function () {\n    pm.expect(response.data).to.eql('ok');\n});\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Stock Entry/{{stock_entry_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Stock Entry", "{{stock_entry_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve Cancelled Material entry",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst original = response.data;\n\npm.test('Cancelled Material Transfer retrieved', function () {\n    pm.expect(original.docstatus).to.eql(2);\n    pm.expect(original.stock_entry_type).to.eql('Material Transfer');\n});\n\nconst amendmentDoc = {\n    doctype: 'Stock Entry',\n    company: original.company,\n    stock_entry_type: original.stock_entry_type,\n    purpose: original.purpose,\n    amended_from: original.name,\n    items: original.items.map(item => ({\n        item_code: item.item_code,\n        qty: item.qty,\n        s_warehouse: item.s_warehouse,\n        t_warehouse: item.t_warehouse,\n        uom: item.uom,\n        conversion_factor: item.conversion_factor,\n        expense_account: item.expense_account,\n        cost_center: item.cost_center\n    }))\n};\n\npm.environment.set(\n    'material_transfer_amendment',\n    JSON.stringify(amendmentDoc)\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Stock Entry/:stock_entry_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Stock Entry", ":stock_entry_id"],
+              "variable": [
+                {
+                  "key": "stock_entry_id",
+                  "value": "{{stock_entry_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Amend Cancelled Material Transfer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst amendment = response.data;\n\npm.test('Amended Material Transfer created successfully', function () {\n    pm.response.to.have.status(200);\n    pm.expect(amendment.name).to.exist;\n    pm.expect(amendment.name).to.not.eql(\n        pm.environment.get('stock_entry_id')\n    );\n});\n\npm.test('Amendment references the cancelled Material Transfer', function () {\n    pm.expect(amendment.amended_from).to.eql(\n        pm.environment.get('stock_entry_id')\n    );\n});\n\npm.test('Material Transfer has been amended and  saved as Draft', function () {\n    pm.expect(amendment.docstatus).to.eql(0);\n});\n\npm.environment.set('amended_stock_entry_id', amendment.name);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doctype\": \"Stock Entry\",\n    \"company\": \"{{expected_company}}\",\n    \"stock_entry_type\": \"Material Transfer\",\n    \"purpose\": \"Material Transfer\",\n    \"amended_from\": \"{{stock_entry_id}}\",\n    \"items\": [\n        {\n            \"item_code\": \"EXC-003\",\n            \"qty\": 3,\n            \"s_warehouse\": \"Raw materials - GP\",\n            \"t_warehouse\": \"Work In Progress - GP\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Stock Entry",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Stock Entry"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200 or 202\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 202]);\n});\n\npm.test('Response time is less than 2000ms', function () {\n    pm.expect(pm.response.responseTime).to.be.below(2000);\n});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Procurement",
+      "item": [
+        {
+          "name": "Get a single Purchase Receipt",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst receipt = response.data;\nconst receiptId = pm.environment.get('purchase_receipt_id');\n\npm.environment.set(\n    'purchase_receipt_document',\n    JSON.stringify(receipt)\n);\n\n\npm.test(`Purchase Receipt ${receiptId} is available`, function () {\n    pm.expect(receipt).to.be.an('object');\n    pm.expect(receipt.name).to.eql(receiptId);\n});\n\npm.test('Purchase Receipt contains a valid document ID', function () {\n    pm.expect(receipt.name).to.be.a('string').and.not.be.empty;\n});\n\npm.test('Response has items array', function () {\n    pm.expect(receipt.items).to.be.an('array');\n    pm.expect(receipt.items.length).to.be.at.least(1);\n});\n\npm.test('Response has correct company', function () {\n    pm.expect(receipt.company).to.be.a('string');\n});"
+                ]
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const receiptId = pm.environment.get('purchase_receipt_id');\n\npm.test('Purchase Receipt ID is configured', function () {\n    pm.expect(receiptId).to.be.a('string').and.not.be.empty;\n});\n\nconsole.log('Retrieving Purchase Receipt:', receiptId);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Purchase Receipt/{{purchase_receipt_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Purchase Receipt", "{{purchase_receipt_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all Purchase Receipts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst receipts = response.data;\n\n\npm.test('A list of Purchase Receipts are available', function () {\n    pm.expect(receipts).to.be.an('array');\n});\n\npm.test('Each Purchase Receipt has a document ID', function () {\n    receipts.forEach(function (receipt) {\n        pm.expect(receipt.name).to.be.a('string').and.not.be.empty;\n    });\n});\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Purchase Receipt?fields=[\"name\",\"supplier\",\"supplier_name\",\"company\",\"posting_date\",\"status\",\"docstatus\",\"net_total\"]&limit_page_length=40",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Purchase Receipt"],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "[\"name\",\"supplier\",\"supplier_name\",\"company\",\"posting_date\",\"status\",\"docstatus\",\"net_total\"]"
+                },
+                {
+                  "key": "limit_page_length",
+                  "value": "40"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Purchase Receipt",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const sent = JSON.parse(pm.request.body.raw);\nconst receipt = pm.response.json().data;\n\nconst expectedTaxRate = Number(pm.environment.get('tax_rate'));\nconst expectedTaxAccount = pm.environment.get('tax_account');\nconst expectedTaxTemplate = pm.environment.get('tax_template');\n\nconst taxes = receipt.taxes || [];\nconst vat = taxes.find(function (tax) {\n    return tax.account_head === expectedTaxAccount;\n});\n\npm.test('The Purchase Receipt is a draft', () => {\n    pm.expect(receipt.docstatus).to.eql(0);\n});\n\n\npm.test('Returned items match the items sent', () => {\n    pm.expect(receipt.items).to.have.lengthOf(sent.items.length);\n\n    sent.items.forEach((s, i) => {\n        const r = receipt.items[i];\n\n        pm.expect(r.item_code).to.eql(s.item_code);\n        pm.expect(r.qty).to.eql(s.qty);\n        pm.expect(r.warehouse).to.eql(s.warehouse);\n        pm.expect(r.rejected_warehouse).to.eql(s.rejected_warehouse);\n    });\n});\n\npm.test('Purchase Taxes and Charges Template is selected', () => {\n    pm.expect(receipt.taxes_and_charges).to.eql(expectedTaxTemplate);\n});\n\nreceipt.items.forEach(function (item, index) {\n    pm.test(\n        `Item ${index + 1}: ${item.item_code} | Qty: ${item.qty} | Accepted: ${item.warehouse} | Rejected: ${item.rejected_warehouse}`,\n        function () {\n            pm.expect(item.item_code).to.be.a('string').and.not.empty;\n            pm.expect(item.warehouse).to.eql('Packaging Materials - GP');\n            pm.expect(item.rejected_warehouse).to.eql(\n                pm.environment.get('rejected_warehouse')\n            );\n        }\n    );\n});\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"supplier\": \"{{test_supplier}}\",\n    \"company\": \"{{expected_company}}\",\n    \"posting_date\": \"{{posting_date}}\",\n    \"taxes_and_charges\": \"{{tax_template}}\",\n    \"set_warehouse\": \"Packaging Materials - GP\",\n    \"items\": [\n        {\n            \"item_code\": \"PKG-003\",\n            \"qty\": 1,\n            \"rate\": 500,\n            \"warehouse\": \"Packaging Materials - GP\",\n            \"rejected_warehouse\": \"{{rejected_warehouse}}\",\n            \"batch_no\": \"{{packaging_batch_no}}\"\n        }\n    ],\n\n    \"taxes\": [\n        {\n            \"category\": \"Total\",\n            \"add_deduct_tax\": \"Add\",\n            \"charge_type\": \"On Net Total\",\n            \"account_head\": \"VAT - GP\",\n            \"description\": \"VAT @ 7.5\",\n            \"rate\": 5,\n            \"cost_center\": \"Main - GP\",\n            \"allocate_full_amount_to_stock_items\": 1\n        }\n    ]\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Purchase Receipt",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Purchase Receipt"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update an Individual Purchase Receipt",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "\nconst response = pm.response.json();\nconst receipt = response.data;\n\nconst receiptId = pm.environment.get('purchase_receipt_id');\n\nconst excItemCode = pm.environment.get('exc_item_code');\nconst excExpectedQty = Number(pm.environment.get('exc_accepted_qty'));\n\nconst capItemCode = pm.environment.get('cap_item_code');\nconst capExpectedQty = Number(pm.environment.get('cap_accepted_qty'));\n\npm.test(`Purchase Receipt ${receiptId} is updated successfully`, function () {\n    pm.expect(receipt.name).to.eql(receiptId);\n});\n\nconst excItem = receipt.items.find(item => item.item_code === excItemCode);\nconst capItem = receipt.items.find(item => item.item_code === capItemCode);\n\npm.test(`Accepted quantity for ${excItemCode} is changed`, function () {\n    pm.expect(excItem).to.exist;\n    pm.expect(Number(excItem.qty)).to.eql(excExpectedQty);\n});\n\npm.test(`Accepted quantity for ${capItemCode} is updated changed`, function () {\n    pm.expect(capItem).to.exist;\n    pm.expect(Number(capItem.qty)).to.eql(capExpectedQty);\n});\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"items\": [\n        {\n            \"item_code\": \"EXC-003\",\n            \"name\": \"c8a38irhru\",\n            \"qty\": 3\n        },\n        {  \n            \"item_code\": \"CAP-001\",\n            \"name\": \"c8a6hfi3c8\",\n            \"qty\": 3\n        }\n\n        \n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Purchase Receipt/:name",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Purchase Receipt", ":name"],
+              "variable": [
+                {
+                  "key": "name",
+                  "value": "{{purchase_receipt_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get updated Purchase Receipt",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Purchase Receipt?fields=[\"name\",\"supplier\",\"supplier_name\",\"company\",\"posting_date\",\"status\",\"docstatus\",\"net_total\"]&limit_page_length=40",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Purchase Receipt"],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "[\"name\",\"supplier\",\"supplier_name\",\"company\",\"posting_date\",\"status\",\"docstatus\",\"net_total\"]"
+                },
+                {
+                  "key": "limit_page_length",
+                  "value": "40"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a Draft Purchase Receipt",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst purchase_receipt_id = pm.environment.get(\"purchase_receipt_id\");\n\npm.test(\"Status code is 200 or 202\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 202]);\n});\n\n\npm.test(`Draft Purchase Receipt ${purchase_receipt_id} has been successfully deleted`, function () {\n    pm.expect(response.data).to.eql('ok');\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Purchase Receipt/:purchase_receipt_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Purchase Receipt", ":purchase_receipt_id"],
+              "variable": [
+                {
+                  "key": "purchase_receipt_id",
+                  "value": "{{purchase_receipt_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submit an indiividual Purchase Receipt",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const receipt = pm.response.json().message;\n\npm.test('Purchase Receipt submitted successfully', () => {\n    pm.expect(receipt.docstatus).to.eql(1);\n});\n\npm.test('Purchase Receipt has a document ID', () => {\n    pm.expect(receipt.name).to.eql(\n        pm.environment.get('purchase_receipt_id')\n    );\n});"
+                ]
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const savedDocument = pm.environment.get('purchase_receipt_document');\n\npm.expect(savedDocument).to.be.a('string').and.not.empty;\n\nconst receipt = JSON.parse(savedDocument);\n\npm.expect(receipt.docstatus).to.eql(0);\n\npm.request.body.update(JSON.stringify({\n    doc: receipt\n}));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doc\": {{purchase_receipt_document}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.client.submit",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.client.submit"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200 or 202\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 202]);\n});\n\npm.test('Response time is less than 2000ms', function () {\n    pm.expect(pm.response.responseTime).to.be.below(2000);\n});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Manufacturing module",
+      "item": [
+        {
+          "name": "Retrieve existing BOM",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst boms = response.data;\n\npm.test('BOM records retrieved successfully', function () {\n    pm.expect(boms).to.be.an('array');\n});\n\npm.test('BOM records contain their essential details', function () {\n    boms.forEach(bom => {\n        pm.expect(bom.name).to.exist;\n        pm.expect(bom.item).to.exist;\n        pm.expect(bom.quantity).to.be.a('number');\n    });\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/BOM?fields=[\"name\",\"item\",\"item_name\",\"quantity\",\"is_active\",\"is_default\",\"docstatus\"]&limit_page_length=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "BOM"],
+              "query": [
+                {
+                  "key": "fields",
+                  "value": "[\"name\",\"item\",\"item_name\",\"quantity\",\"is_active\",\"is_default\",\"docstatus\"]"
+                },
+                {
+                  "key": "limit_page_length",
+                  "value": "20"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve a Specific BOM",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst bom = response.data;\n\npm.test(`${bom.name} has been retrieved successfully`, function () {\n    pm.response.to.have.status(200);\n    pm.expect(bom.name).to.eql('BOM-CAP-001-002');\n    pm.expect(bom.item).to.eql('CAP-001');\n    pm.expect(bom.docstatus).to.eql(1);\n    pm.expect(bom.items).to.be.an('array').that.is.not.empty;\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/BOM/:bom_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "BOM", ":bom_id"],
+              "variable": [
+                {
+                  "key": "bom_id",
+                  "value": "BOM-CAP-001-002"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create BOM",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst bom = response.data;\n\npm.test('BOM created successfully', function () {\n    pm.expect(bom.name).to.exist;\n    pm.expect(bom.item).to.eql('TAB-001');\n});\n\npm.test('BOM production quantity is correct', function () {\n    pm.expect(Number(bom.quantity)).to.eql(3);\n});\n\npm.test('BOM is active and non-default', function () {\n    pm.expect(bom.is_active).to.eql(1);\n    pm.expect(bom.is_default).to.eql(0);\n});\n\npm.test('BOM contains all raw materials', function () {\n    pm.expect(bom.items).to.have.lengthOf(2);\n\n    const expectedItems = ['API-001', 'PKG-003'];\n\n    expectedItems.forEach(itemCode => {\n        pm.expect(\n            bom.items.some(item => item.item_code === itemCode)\n        ).to.eql(true);\n    });\n});\n\npm.environment.set('bom_id', bom.name);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"doctype\": \"BOM\",\n  \"item\": \"TAB-001\",\n  \"company\": \"{{expected_company}}\",\n  \"quantity\": 3,\n  \"uom\": \"Nos\",\n  \"transfer_material_against\": \"Work Order\",\n  \"cost_allocation_per\": 100,\n  \"process_loss_percentage\": 0,\n  \"with_operations\": 0,\n  \"track_semi_finished_goods\": 0,\n  \"is_active\": 1,\n  \"is_default\": 0,\n  \"set_rate_of_sub_assembly_item_based_on_bom\": 1,\n  \"rm_cost_as_per\": \"Valuation Rate\",\n  \"currency\": \"NGN\",\n  \"conversion_rate\": 1,\n  \"items\": [\n    {\n      \"item_code\": \"API-001\",\n      \"qty\": 1.5,\n      \"uom\": \"Gram\",\n      \"include_item_in_manufacturing\": 1\n    },\n    {\n      \"item_code\": \"PKG-003\",\n      \"qty\": 2,\n      \"uom\": \"roll\",\n      \"include_item_in_manufacturing\": 1\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/BOM",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "BOM"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve the created BOM",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst bom = response.data;\n\npm.test('BOM retrieved and ready for submission', function () {\n    pm.expect(bom.name).to.eql(pm.environment.get('bom_id'));\n    pm.expect(bom.docstatus).to.eql(0);\n});\n\npm.environment.set('bom_doc', JSON.stringify(bom));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/BOM/:bom_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "BOM", ":bom_id"],
+              "variable": [
+                {
+                  "key": "bom_id",
+                  "value": "{{bom_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submit the created BOM",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const jsonData = pm.response.json();\nconst bom = jsonData.message;\nconst itemCodes = bom.items.map(item => item.item_code);\n\npm.test(`BOM is submitted and contains ${bom.items.length} components: ${itemCodes.join(', ')}`, function () {\n    pm.expect(bom.docstatus).to.eql(1);\n    pm.expect(bom.items).to.be.an('array');\n    pm.expect(bom.items).to.have.lengthOf(2);\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doc\": {{bom_doc}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.client.submit",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.client.submit"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a BOM in draft mode",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/BOM/:bom_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "BOM", ":bom_id"],
+              "variable": [
+                {
+                  "key": "bom_id",
+                  "value": "{{bom_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify Deleted BOM",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Deleted BOM cannot be retrieved', function () {\n    pm.response.to.have.status(404);\n});\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/BOM/:bom_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "BOM", ":bom_id"],
+              "variable": [
+                {
+                  "key": "bom_id",
+                  "value": "{{bom_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel a BOM",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const jsonData = pm.response.json();\nconst bom = jsonData.message;\n\npm.test('BOM is cancelled successfully', function () {\n    pm.expect(bom.docstatus).to.eql(2);\n});\n\npm.test('Cancelled BOM has the expected ID', function () {\n    pm.expect(bom.name).to.eql(pm.environment.get('submitted_bom_id'));\n});\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doctype\": \"BOM\",\n    \"name\": \"{{submitted_bom_id}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.client.cancel",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.client.cancel"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get existing Work Orders",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst workOrders = response.data;\n\npm.test('Work Orders are retrieved successfully', function () {\n    pm.expect(workOrders).to.be.an('array');\n});\n\npm.test(`Retrieved ${workOrders.length} Work Orders`, function () {\n    pm.expect(workOrders.length).to.be.greaterThan(0);\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Work Order",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Work Order"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get an individual work order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst workOrder = response.data;\n\npm.test('Work Order is retrieved successfully', function () {\n    pm.expect(response).to.have.property('data');\n    pm.expect(workOrder.name).to.eql('MFG-WO-2026-00021');\n});\n\npm.test('Work Order contains item production details', function () {\n    pm.expect(workOrder.production_item).to.exist;\n    pm.expect(workOrder.bom_no).to.exist;\n    pm.expect(workOrder.qty).to.be.a('number');\n});\n\npm.test('Work Order contains required manufacturing materials', function () {\n    pm.expect(workOrder.required_items).to.be.an('array').that.is.not.empty;\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Work Order/:work_order_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Work Order", ":work_order_id"],
+              "variable": [
+                {
+                  "key": "work_order_id",
+                  "value": "MFG-WO-2026-00151"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create New Work Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst workOrder = response.data;\n\npm.test('Work Order is created successfully', function () {\n   pm.expect(response).to.have.property('data');\n    pm.expect(workOrder.name).to.exist;\n    pm.expect(workOrder.docstatus).to.eql(0);\n});\n\npm.test('Work Order has the expected production details', function () {\n    pm.expect(workOrder.production_item).to.eql('TAB-001');\n    pm.expect(workOrder.bom_no).to.eql('BOM-TAB-001-005');\n    pm.expect(workOrder.qty).to.eql(2);\n});\n\npm.test('Work Order has the correct warehouses', function () {\n    pm.expect(workOrder.wip_warehouse).to.eql('Work In Progress - GP');\n    pm.expect(workOrder.fg_warehouse).to.eql('Finished Goods - GP');\n});\n\npm.environment.set('work_order_id', workOrder.name);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization",
+                  "type": "string"
+                },
+                {
+                  "key": "value",
+                  "value": "token {{api_key}}:{{api_secret}}",
+                  "type": "string"
+                },
+                {
+                  "key": "in",
+                  "value": "header",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"doctype\": \"Work Order\",\n  \"company\": \"{{expected_company}}\",\n  \"production_item\": \"TAB-001\",\n  \"bom_no\": \"BOM-TAB-001-005\",\n  \"qty\": 2,\n  \"wip_warehouse\": \"Work In Progress - GP\",\n  \"fg_warehouse\": \"Finished Goods - GP\",\n  \"transfer_material_against\": \"Work Order\",\n  \"use_multi_level_bom\": 1,\n  \"reserve_stock\": 0,\n  \"skip_transfer\": 0,\n  \"from_wip_warehouse\": 0,\n  \"allow_alternative_item\": 0,\n  \"track_semi_finished_goods\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Work Order",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Work Order"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve the Created work order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst workOrder = response.data;\nconst workOrderId = workOrder.name; \n\npm.test(`Newly created Work Order (${workOrderId}) retrieved successfully`, function () {\n    pm.expect(workOrder.docstatus).to.eql(0);\n});\n\npm.environment.set('work_order_id', workOrderId);\npm.environment.set('work_order_doc', JSON.stringify(workOrder));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Work Order/:work_order_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Work Order", ":work_order_id"],
+              "variable": [
+                {
+                  "key": "work_order_id",
+                  "value": "{{work_order_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update a Draft Work Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst workOrder = response.data;\n\npm.test('Work Order required items updated successfully', function () {\n    pm.response.to.have.status(200);\n\n    // The response does not contain item_code, so we search by name\n    const item1 = workOrder.required_items.find(\n        item => item.name === '74vi2m5fri'\n    );\n\n    const item2 = workOrder.required_items.find(\n        item => item.name === '74vpis3tfv'\n    );\n\n    pm.expect(item1).to.not.be.undefined;\n    pm.expect(item1.source_warehouse).to.eql('Raw materials - GP');\n    \n    pm.expect(item2).to.not.be.undefined;\n    pm.expect(item2.source_warehouse).to.eql('Packaging Materials - GP');\n});\n\npm.environment.set('work_order_doc', JSON.stringify(workOrder));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"required_items\": [\n    {\n      \"name\": \"74vi2m5fri\",\n      \"item_code\": \"API-001\",\n      \"item_name\": \"Synthetic API A\",\n      \"source_warehouse\": \"Raw materials - GP\",\n      \"required_qty\": 1,\n      \"rate\": 5000,\n      \"amount\": 5000,\n      \"uom\": \"Gram\",\n      \"stock_uom\": \"Gram\",\n      \"stock_qty\": 1,\n      \"conversion_factor\": 1,\n      \"include_item_in_manufacturing\": 1\n    },\n    {\n      \"name\": \"74vpis3tfv\",\n      \"item_code\": \"PKG-003\",\n      \"item_name\": \"Blister Packaging Material - Batch Tracked\",\n      \"source_warehouse\": \"Packaging Materials - GP\",\n      \"required_qty\": 1.333333333,\n      \"rate\": 500,\n      \"amount\": 666.67,\n      \"uom\": \"roll\",\n      \"stock_uom\": \"roll\",\n      \"stock_qty\": 1.333333333,\n      \"conversion_factor\": 1,\n      \"include_item_in_manufacturing\": 1\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Work Order/{{work_order_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Work Order", "{{work_order_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a work order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test(`Draft Work Order (${pm.environment.get('work_order_id')}) deleted successfully`, function () {\n    pm.response.to.have.status(200);\n    pm.expect(response.data).to.eql('ok');\n});"
+                ]
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const workOrderId = pm.environment.get('work_order_id');\nconst workOrderDoc = pm.environment.get('work_order_doc');\n\nif (!workOrderId || !workOrderDoc) {\n    throw new Error('Work Order ID or document is missing. Retrieve the existing work orders first');\n}\n\nconst workOrder = JSON.parse(workOrderDoc);\n\nif (workOrder.docstatus !== 0) {\n    throw new Error('Cannot delete this Work Order. Only Draft Work Orders can be deleted.');\n}\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submit a Work Order",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const workOrderDoc = pm.environment.get('work_order_doc');\n\nif (!workOrderDoc) {\n    throw new Error('Work Order document is missing. Retrieve it first.');\n}\n\nconst workOrder = JSON.parse(workOrderDoc);\n\nif (workOrder.docstatus !== 0) {\n    throw new Error('Only a Draft Work Order can be submitted.');\n}\n\n\n"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst workOrder = response.message;\n\npm.test('Work Order is submitted successfully', function () {\n    pm.expect(workOrder.docstatus).to.eql(1);\n});\n\npm.test('Submitted Work Order has the expected ID', function () {\n    pm.expect(workOrder.name).to.eql(pm.environment.get('work_order_id'));\n});\n\npm.test('Work Order retains its production details', function () {\n    pm.expect(workOrder.production_item).to.eql('TAB-001');\n    pm.expect(workOrder.bom_no).to.eql('BOM-TAB-001-005');\n    pm.expect(workOrder.qty).to.eql(2);\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doc\": {{work_order_doc}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.client.submit",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.client.submit"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve a Submitted work order for Manufacture",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Work Order/:work_order_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Work Order", ":work_order_id"],
+              "variable": [
+                {
+                  "key": "work_order_id",
+                  "value": "{{work_order_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel a Submitted Order",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const workOrderId = pm.environment.get('work_order_id');\n\nif (!workOrderId) {\n    throw new Error('Work Order ID is missing.');\n}\n"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst workOrder = response.message;\n\npm.test(`Work Order (${workOrder.name}) is cancelled`, function () {\n    pm.expect(workOrder.name).to.eql(pm.environment.get('work_order_id'));\n    pm.expect(workOrder.docstatus).to.eql(2);\n});\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doctype\": \"Work Order\",\n    \"name\": \"{{work_order_id}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.client.cancel",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.client.cancel"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve the Cancelled Work Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst workOrder = response.data;\n\npm.test('Cancelled Work Order retrieved successfully', function () {\n    pm.expect(workOrder.docstatus).to.eql(2);\n});\n\npm.environment.set('cancelled_work_order_doc', JSON.stringify(workOrder));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Work Order/:work_order_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Work Order", ":work_order_id"],
+              "variable": [
+                {
+                  "key": "work_order_id",
+                  "value": "{{work_order_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Amend a Cancelled Work Order",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const cancelledDoc = pm.environment.get('cancelled_work_order_doc');\n\nif (!cancelledDoc) {\n    throw new Error('Cancelled Work Order not found. Retrieve it first.');\n}\n\nconst workOrder = JSON.parse(cancelledDoc);\n\nif (workOrder.docstatus !== 2) {\n    throw new Error('Only a cancelled Work Order can be amended.');\n}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst workOrder = response.data;\n\npm.test('Amended Work Order created successfully and is in draft mode', function () {\n    pm.expect(workOrder.docstatus).to.eql(0);\n});\n\npm.test('Amended Work Order is created from the original cancelled work order', function () {\n    pm.expect(workOrder.amended_from)\n        .to.eql(pm.environment.get('cancelled_work_order_id'));\n});\n\n\n\npm.environment.set('work_order_id', workOrder.name);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doctype\": \"Work Order\",\n    \"amended_from\": \"{{cancelled_work_order_id}}\",\n    \"company\": \"{{expected_company}}\",\n    \"production_item\": \"TAB-001\",\n    \"bom_no\": \"BOM-TAB-001-004\",\n    \"qty\": 2,\n    \"wip_warehouse\": \"Work In Progress - GP\",\n    \"fg_warehouse\": \"Finished Goods - GP\",\n    \"transfer_material_against\": \"Work Order\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Work Order",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Work Order"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Prepare WO for Material Transfer for Manufacture",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const workOrderId = pm.environment.get('work_order_id');\n\npm.test('Work Order ID is configured', function () {\n    pm.expect(workOrderId).to.be.a('string').and.not.be.empty;\n});"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst stockEntry = response.message;\n\npm.test('Generated Stock Entry is valid for saving', function () {\n    pm.expect(stockEntry.doctype).to.eql('Stock Entry');\n    pm.expect(stockEntry.docstatus).to.eql(0);\n    pm.expect(stockEntry.items).to.have.lengthOf(2);\n});\n\npm.environment.set(\n    'material_transfer_doc',\n    JSON.stringify(stockEntry)\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"work_order_id\": \"{{work_order_id}}\",\n    \"purpose\": \"Material Transfer for Manufacture\",\n    \"qty\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/erpnext.manufacturing.doctype.work_order.work_order.make_stock_entry",
+              "host": ["{{base_url}}"],
+              "path": [
+                "api",
+                "method",
+                "erpnext.manufacturing.doctype.work_order.work_order.make_stock_entry"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Save the Generated Material transfer for manufacture Stock entry",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const stockEntryDoc = pm.environment.get('material_transfer_doc');\n\nconst doc = JSON.parse(stockEntryDoc);\n\nconst batchAssignments = {\n    \"API-001\": \"B-01\",\n    \"PKG-003\": \"PKG003-BN-001\"\n};\n\nfor (const [itemCode, batchNo] of Object.entries(batchAssignments)) {\n    const item = stockEntryDoc.items.find(row => row.item_code === itemCode);\n\n    if (!item) {\n        throw new Error(`Material Transfer For Manufacture document is missing item ${itemCode}.`);\n    }\n\n    item.batch_no = batchNo;\n    item.use_serial_batch_fields = 1;\n    item.serial_and_batch_bundle = null;\n}\n\npm.environment.set(\"material_transfer_doc\", JSON.stringify(stockEntryDoc));"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test(\"Stock Entry draft was created\", function () { \n    pm.expect(response.message).to.be.an(\"object\");\n    pm.expect(response.message.name).to.be.a(\"string\");\n    pm.expect(response.message.docstatus).to.eql(0);\n\n    pm.environment.set(\"mtfm_stock_entry_id\", response.message.name);\n});\n\npm.test(\"Both item batches were saved and attached to the items\", function () {\n    const items = pm.response.json().message.items;\n\n    const apiItem = items.find(row => row.item_code === \"API-001\");\n    const packagingItem = items.find(row => row.item_code === \"PKG-003\");\n\n    pm.expect(apiItem.batch_no).to.eql(\"B-01\");\n    pm.expect(packagingItem.batch_no).to.eql(\"PKG003-BN-001\");\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doc\": {{material_transfer_doc}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.client.insert",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.client.insert"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve a saved Material transfer for Manufacture: Stock entry",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Stock Entry/{{mtfm_stock_entry_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Stock Entry", "{{mtfm_stock_entry_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update a Material transfer for Manufacture",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"name\": \"ri4ht8ukbc\",\n      \"item_code\": \"API-001\",\n      \"s_warehouse\": \"Raw materials - GP\",\n      \"t_warehouse\": \"Work In Progress - GP\",\n      \"qty\": 1,\n      \"transfer_qty\": 1,\n      \"uom\": \"Gram\",\n      \"stock_uom\": \"Gram\",\n      \"conversion_factor\": 1,\n      \"batch_no\": \"B-01\",\n      \"use_serial_batch_fields\": 0\n    },\n    {\n      \"name\": \"ri419h7vcm\",\n      \"item_code\": \"PKG-003\",\n      \"s_warehouse\": \"Packaging Materials - GP\",\n      \"t_warehouse\": \"Work In Progress - GP\",\n       \"qty\": 1.333333,\n      \"transfer_qty\": 1.333333,\n      \"uom\": \"roll\",\n      \"stock_uom\": \"roll\",\n      \"conversion_factor\": 1,\n      \"batch_no\": \"PKG003-BN-001\",\n      \"use_serial_batch_fields\": 0\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Stock Entry/{{mtfm_stock_entry_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Stock Entry", "{{mtfm_stock_entry_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submit Material Transfer for Manufacture",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const responseData = pm.response.json();\nconst submittedDoc = responseData.docs?.[0] || responseData.message;\n\npm.test(\"Stock Entry submission successful\", function () {\n    pm.expect(submittedDoc.docstatus).to.eql(1);\n    pm.expect(submittedDoc.name).to.eql(pm.environment.get(\"stock_entry_id\"));\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"doc\": {{stock_entry_doc}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.client.submit",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.client.submit"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve Work Order In process of Manufacturing",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Prepare WO to Generate Manufacture Stock Entry",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"work_order_id\": \"MFG-WO-2026-00153\",\n    \"purpose\": \"Manufacture\",\n    \"qty\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/erpnext.manufacturing.doctype.work_order.work_order.make_stock_entry",
+              "host": ["{{base_url}}"],
+              "path": [
+                "api",
+                "method",
+                "erpnext.manufacturing.doctype.work_order.work_order.make_stock_entry"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Save the Generated Manufacture Stock Entry",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test(\"Status code is 200, 201, or 417\", () => {\n    pm.expect(pm.response.code).to.be.oneOf([200, 201, 417]);\n});\n\npm.test(\"Draft Manufacture Stock Entry created or duplicate handled\", () => {\n    if (pm.response.code === 417) {\n        pm.expect(response).to.have.property(\"exception\");\n        pm.expect(response.exception).to.contain(\"DuplicateEntryForWorkOrderError\");\n    } else {\n        pm.expect(response).to.have.property(\"message\");\n        pm.expect(response.data.doctype).to.eql(\"Stock Entry\");\n        pm.expect(response.data.docstatus).to.eql(0);\n    }\n});\n\nif (response.data) {\n    const doc = response.data;\n\n    pm.test(\"Correct Work Order and BOM\", () => {\n        pm.expect(doc.work_order).to.eql(\"MFG-WO-2026-00153\");\n        pm.expect(doc.bom_no).to.eql(\"BOM-TAB-001-005\");\n    });\n\n    pm.test(\"Manufacture purpose and quantity are correct\", () => {\n        pm.expect(doc.purpose).to.eql(\"Manufacture\");\n        pm.expect(Number(doc.fg_completed_qty)).to.eql(2);\n    });\n\n    pm.test(\"All required items are present\", () => {\n        const codes = doc.items.map(item => item.item_code);\n        pm.expect(codes).to.include.members([\n            \"API-001\",\n            \"PKG-003\",\n            \"TAB-001\"\n        ]);\n    });\n\n    pm.environment.set(\"manufacture_stock_entry_id\", doc.name);\n} else if (pm.response.code === 417) {\n    console.warn(\"Stock Entry already exists for this Work Order.\");\n}\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doc\": {\n        \"doctype\": \"Stock Entry\",\n        \"company\": \"GreenLife Pharma\",\n        \"stock_entry_type\": \"Manufacture\",\n        \"purpose\": \"Manufacture\",\n        \"posting_date\": \"2026-11-25\",\n        \"posting_time\": \"05:13:14.446213\",\n        \"work_order\": \"MFG-WO-2026-00153\",\n        \"from_bom\": 1,\n        \"use_multi_level_bom\": 1,\n        \"bom_no\": \"BOM-TAB-001-005\",\n        \"fg_completed_qty\": 2,\n        \"from_warehouse\": \"Work In Progress - GP\",\n        \"to_warehouse\": \"Finished Goods - GP\",\n        \"items\": [\n            {\n                \"doctype\": \"Stock Entry Detail\",\n                \"s_warehouse\": \"Work In Progress - GP\",\n                \"item_code\": \"API-001\",\n                \"item_name\": \"Synthetic API A\",\n                \"is_finished_item\": 0,\n                \"qty\": 1,\n                \"transfer_qty\": 1,\n                \"uom\": \"Gram\",\n                \"stock_uom\": \"Gram\",\n                \"conversion_factor\": 1,\n                \"basic_rate\": 5000,\n                \"valuation_rate\": 5000,\n                \"basic_amount\": 5000,\n                \"amount\": 5000,\n                \"use_serial_batch_fields\": 0\n            },\n            {\n                \"doctype\": \"Stock Entry Detail\",\n                \"s_warehouse\": \"Work In Progress - GP\",\n                \"item_code\": \"PKG-003\",\n                \"item_name\": \"Blister Packaging Material - Batch Tracked\",\n                \"is_finished_item\": 0,\n                \"qty\": 1.333333,\n                \"transfer_qty\": 1.333333,\n                \"uom\": \"roll\",\n                \"stock_uom\": \"roll\",\n                \"conversion_factor\": 1,\n                \"basic_rate\": 500,\n                \"valuation_rate\": 500,\n                \"basic_amount\": 666.67,\n                \"amount\": 666.67,\n                \"use_serial_batch_fields\": 0\n            },\n            {\n                \"doctype\": \"Stock Entry Detail\",\n                \"t_warehouse\": \"Finished Goods - GP\",\n                \"item_code\": \"TAB-001\",\n                \"item_name\": \"Sample Tablet \",\n                \"is_finished_item\": 1,\n                \"qty\": 2,\n                \"transfer_qty\": 2,\n                \"uom\": \"Nos\",\n                \"stock_uom\": \"Nos\",\n                \"conversion_factor\": 1,\n                \"basic_rate\": 2833.335,\n                \"valuation_rate\": 2833.335,\n                \"basic_amount\": 5666.67,\n                \"amount\": 5666.67,\n                \"bom_no\": \"BOM-TAB-001-005\",\n                \"use_serial_batch_fields\": 1,\n                \"batch_no\": \"GLP-TAB-001\"\n            }\n        ]\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.client.insert",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.client.insert"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve saved manufacture stock entry",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test(\"Manufacture draft retrieved\", () => {\n    pm.response.to.have.status(200);\n    pm.expect(response.data.name).to.eql(\n        pm.environment.get(\"manufacture_stock_entry_id\")\n    );\n});\n\nif (response.data) {\n    pm.environment.set(\n        \"manufacture_stock_entry_doc\",\n        JSON.stringify(response.data)\n    );\n}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Stock Entry/{{manufacture_stock_entry_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Stock Entry", "{{manufacture_stock_entry_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submit Manufacture Stock Entry",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test(\"Manufacture Stock Entry submitted\", () => {\n    pm.expect(response.message).to.exist;\n    pm.expect(response.message.docstatus).to.eql(1);\n    pm.expect(response.message.name).to.eql(\n        pm.environment.get(\"manufacture_stock_entry_id\")\n    );\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doc\": {{manufacture_stock_entry_doc}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.client.submit",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.client.submit"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify Work Order Completion",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst workOrder = response.data;\n\npm.test(\"Work Order is submitted and completed\", () => {\n    pm.expect(workOrder.docstatus).to.eql(1);\n    pm.expect(workOrder.status).to.eql(\"Completed\");\n});\n\npm.test(\"Full production quantity was completed\", () => {\n    pm.expect(workOrder.qty).to.eql(2);\n    pm.expect(workOrder.produced_qty).to.eql(2);\n    pm.expect(workOrder.material_transferred_for_manufacturing).to.eql(2);\n});\n\npm.test(\"API-001 was fully transferred and consumed\", () => {\n    const api = workOrder.required_items.find(\n        item => item.item_code === \"API-001\"\n    );\n\n    pm.expect(api, \"API-001 row should exist\").to.exist;\n    pm.expect(api.transferred_qty).to.eql(1);\n    pm.expect(api.consumed_qty).to.eql(1);\n    pm.expect(api.returned_qty).to.eql(0);\n});\n\npm.test(\"PKG-003 was fully transferred and consumed\", () => {\n    const packaging = workOrder.required_items.find(\n        item => item.item_code === \"PKG-003\"\n    );\n\n    pm.expect(packaging, \"PKG-003 row should exist\").to.exist;\n    pm.expect(packaging.transferred_qty).to.eql(1.333333);\n    pm.expect(packaging.consumed_qty).to.eql(1.333333);\n    pm.expect(packaging.returned_qty).to.eql(0);\n});\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Work Order/MFG-WO-2026-00153",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Work Order", "MFG-WO-2026-00153"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200 or 202\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 202]);\n});\n\npm.test('Response time is less than 2000ms', function () {\n    pm.expect(pm.response.responseTime).to.be.below(2000);\n});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Negative / Error-handling and Edge-Case testing",
+      "item": [
+        {
+          "name": "Invalid Login - Wrong username and right password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "user",
+                  "value": "manda",
+                  "type": "text"
+                },
+                {
+                  "key": "pass",
+                  "value": "{{login_password}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/login",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Login - Right username and wrong password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test(\"Invalid login returns an authentication error\", () => {\n    pm.expect(pm.response.code).to.be.oneOf([401, 403, 417]);\n});\n\npm.test(\"Login is rejected\", () => {\n    pm.expect(response.message).to.exist;\n    pm.expect(response.message).to.not.eql(\"Logged In\");\n});\n\npm.test(\"Invalid credentials do not establish an authenticated session\", () => {\n    pm.expect(response.home_page).to.not.eql(\"/app\");\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "login_user",
+                  "value": "{{login_username}}",
+                  "type": "text"
+                },
+                {
+                  "key": "login_password",
+                  "value": "passerby92902#@",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/login",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Empty login credentials",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test(\"User cannot login with empty Credentials\", () => {\n    pm.expect(response.message).to.not.eql(\"Logged In\");\n});\n\npm.test(\"Empty credentials return an error response\", () => {\n    pm.expect(pm.response.code).to.be.oneOf([400, 401, 403, 417]);\n});\n\npm.test(\"Empty login does not return an authenticated user\", () => {\n    pm.expect(response.message).to.not.eql(\n        pm.environment.get(\"login_username\")\n    );\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "{{base_url}}/api/method/login",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Authorization - Insufficient user prmissions",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test('Restricted user cannot access Purchase Receipt records', function () {\n    pm.expect(pm.response.code).to.be.oneOf([401, 403, 417]);\n});\n\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Purchase Receipt",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Purchase Receipt"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Authorization - Unauthenticated user",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test('Unauthenticated user cannot access the system', function () {\n    pm.expect(pm.response.code).to.be.oneOf([401, 403]);\n});\n\npm.test('System denies access without authentication', function () {\n    pm.expect(response.exc_type).to.eql('PermissionError');\n    pm.expect(response.exception).to.include('Login to access');\n});\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.auth.get_logged_user",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.auth.get_logged_user"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Authorization - Invalid API credentials",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test('Authentication rejected: Invalid API credentials', function () {\n    pm.expect(pm.response.code).to.be.oneOf([401, 403]);\n});\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/method/frappe.auth.get_logged_user",
+              "host": ["{{base_url}}"],
+              "path": ["api", "method", "frappe.auth.get_logged_user"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Negative test - Create Work Order with invalid BOM",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test('Work Order creation is rejected because an invalid BOM was set', function () {\n    pm.expect(pm.response.code).to.be.oneOf([400, 417]);\n    pm.expect(response.exception).to.exist;\n    pm.expect(response.exception).to.include('MOB-EEDK-274');\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doctype\": \"Work Order\",\n    \"company\": \"{{expected_company}}\",\n    \"production_item\": \"TAB-001\",\n    \"bom_no\": \"MOB-EEDK-274\",\n    \"qty\": 2,\n    \"wip_warehouse\": \"Work In Progress - GP\",\n    \"fg_warehouse\": \"Finished Goods - GP\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Work Order",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Work Order"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Negative: Empty Work Order creation",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test('Empty Work Order submission is rejected', function () {\n    pm.expect(pm.response.code).to.be.oneOf([400, 417, 422]);\n    pm.expect(response.exception).to.exist;\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Work Order",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Work Order"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Negative test - Create BOM with invalid item code",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test('BOM creation is rejected for an invalid component item', function () {\n    pm.expect(pm.response.code).to.be.oneOf([400, 417]);\n    pm.expect(response.exception).to.exist;\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"doctype\": \"BOM\",\n    \"item\": \"CAP-001\",\n    \"company\": \"{{expected_company}}\",\n    \"quantity\": 15,\n    \"uom\": \"Nos\",\n    \"is_active\": 1,\n    \"is_default\": 0,\n    \"rm_cost_as_per\": \"Valuation Rate\",\n    \"transfer_material_against\": \"Work Order\",\n    \"items\": [\n        {\n            \"item_code\": \"EXC-API-22829\",\n            \"qty\": 4,\n            \"uom\": \"Gram\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/BOM",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "BOM"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Negative test: Material transfer of insufficient stock",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\npm.test('Material Transfer creation is rejected', function () {\n    pm.expect(pm.response.code).to.be.oneOf([400, 417, 422]);\n});\n\npm.test('Missing Item Code', function () {\n    pm.expect(response.exception).to.exist;\n    pm.expect(response.exception).to.include('Item');\n});\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "\n{\n    \"stock_entry_type\": \"Material Transfer\",\n    \"purpose\": \"Material Transfer\",\n    \"company\": \"{{expected_company}}\",\n    \"items\": [\n        {\n            \"qty\": 5,\n            \"s_warehouse\": \"Raw materials - GP\",\n            \"t_warehouse\": \"Work In Progress - GP\"\n        }\n    ]\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Stock Entry",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Stock Entry"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Negative item test - Get a specific item that does not exist",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst itemCode = 'NON-EXISTENT-ITEM-339';\n\npm.test(`Item ${itemCode} does not exist`, function () {\n    pm.expect(pm.response.code).to.be.oneOf([403, 404, 417]);\n});\n\npm.test(\"Response time is less than 2000ms\", function () {\n    pm.expect(pm.response.responseTime).to.be.below(2000);\n});\n\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Item/NON-EXISTENT-ITEM-339",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Item", "NON-EXISTENT-ITEM-339"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Negative test - Get items with missing details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\nconst items = response.data;\n\nconst incompleteItems = [];\n\nitems.forEach(function (item) {\n    const missingDetails = [];\n\n    if (!item.item_name) {\n        missingDetails.push('Item Name');\n    }\n\n    if (!item.item_code) {\n        missingDetails.push('Item Code');\n    }\n\n    if (!item.item_group) {\n        missingDetails.push('Item Group');\n    }\n\n    if (!item.stock_uom) {\n        missingDetails.push('Stock UOM');\n    }\n\n    if (missingDetails.length > 0) {\n        incompleteItems.push({\n            item_id: item.name,\n            missing_details: missingDetails\n        });\n    }\n});\n\npm.test('The following data are missing: Item Name, Item Code, stock_uom', function () {\n    pm.expect(true).to.be.true;\n});\n\npm.environment.set(\n    'incomplete_item_records',\n    JSON.stringify(incompleteItems)\n);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/resource/Item?limit_page_length=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Item"],
+              "query": [
+                {
+                  "key": "limit_page_length",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Negative test - Invalid Item code when creating purchase receipt",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const response = pm.response.json();\n\nconst invalidItemCode = 'Invalid-item-384';\n\npm.test('Purchase Receipt creation is rejected', function () {\n    pm.expect(pm.response.code).to.be.oneOf([400, 417, 422]);\n});\n\npm.test(`Invalid item code ${invalidItemCode} is identified in the error message`, function () {\n    pm.expect(JSON.stringify(response)).to.include(invalidItemCode);\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "token {{api_key}}:{{api_secret}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"supplier\": \"{{test_supplier}}\",\n    \"company\": \"{{expected_company}}\",\n    \"posting_date\": \"{{posting_date}}\",\n    \"taxes_and_charges\": \"{{tax_template}}\",\n    \"items\": [\n        {\n            \"item_code\": \"Invalid-item-384\",\n            \"qty\": 1,\n            \"warehouse\": \"{{accepted_warehouse}}\",\n            \"rejected_warehouse\": \"{{rejected_warehouse}}\",\n            \"use_serial_batch_fields\": 1,\n            \"batch_no\": \"{{exc_batch_no}}\"\n        },\n        {\n            \"item_code\": \"{{cap_item_code}}\",\n            \"qty\": 1,\n            \"warehouse\": \"{{accepted_warehouse}}\",\n            \"rejected_warehouse\": \"{{rejected_warehouse}}\",\n            \"use_serial_batch_fields\": 1,\n            \"batch_no\": \"{{cap_batch_no}}\"\n        }\n    ],\n\n    \"taxes\": [\n        {\n            \"category\": \"Total\",\n            \"add_deduct_tax\": \"Add\",\n            \"charge_type\": \"On Net Total\",\n            \"account_head\": \"VAT - GP\",\n            \"description\": \"VAT @ 7.5\",\n            \"rate\": 5,\n            \"cost_center\": \"Main - GP\",\n            \"allocate_full_amount_to_stock_items\": 1\n        }\n    ]\n\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resource/Purchase Receipt",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resource", "Purchase Receipt"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "apikey"
+  }
+}
