@@ -1,0 +1,40 @@
+{
+  "name": "erpnext-analysis",
+  "version": "1.0.0",
+  "description": "This project is use to evaluate the performance of ERPNext through a pharmaceutical manufacturing and inventory management case study based on Greenlife Pharmaceuticals Nigeria. The tools used includes Playwright, TypeScript, REST API automation, MariaDB, SQL, CI/CD through GitHub Actions and Apache JMeter The live link will soon be up.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikekoe/ERPNext-analysis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mikekoe/ERPNext-analysis/issues"
+  },
+  "homepage": "https://github.com/mikekoe/ERPNext-analysis#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.15.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-playwright": "^2.12.2",
+    "prettier": "^3.10.1",
+    "typescript-eslint": "^8.72.2"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10"
+  }
+}
