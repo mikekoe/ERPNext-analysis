@@ -2,7 +2,57 @@
 
 # Greenlife Pharmaceuticals Limited ERPNext Test Suite
 
-[![Playwright Tests](https://github.com/mikekoe/ERPNext-analysis/actions/workflows/playwright.yml/badge.svg?branch=main)](https://github.com/mikekoe/ERPNext-analysis/actions/workflows/playwright.yml)
+<h2 align="center">Tech Stack & Tools</h2>
+
+<p align="center">
+  <strong>Languages</strong><br/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/SQL-4479A1?logo=mysql&logoColor=white" alt="SQL"/>
+  <img src="https://img.shields.io/badge/Markdown-000000?logo=markdown&logoColor=white" alt="Markdown"/>
+</p>
+
+<p align="center">
+  <strong>Test Automation & QA</strong><br/>
+  <img src="https://img.shields.io/badge/Playwright-2EAD33?logo=playwright&logoColor=white" alt="Playwright"/>
+  <img src="https://img.shields.io/badge/Postman-FF6C37?logo=postman&logoColor=white" alt="Postman"/>
+  <img src="https://img.shields.io/badge/Apache%20JMeter-D22128?logo=apachejmeter&logoColor=white" alt="Apache JMeter"/>
+</p>
+
+<p align="center">
+  <strong>ERP Platform & Database</strong><br/>
+  <img src="https://img.shields.io/badge/ERPNext-16.55.0-0089FF" alt="ERPNext"/>
+  <img src="https://img.shields.io/badge/Frappe-16.56.0-0089FF" alt="Frappe"/>
+  <img src="https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=white" alt="MariaDB"/>
+</p>
+
+<p align="center">
+  <strong>Runtime & Package Management</strong><br/>
+  <img src="https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white" alt="Node.js"/>
+  <img src="https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white" alt="npm"/>
+</p>
+
+<p align="center">
+  <strong>Code Quality & Formatting</strong><br/>
+  <img src="https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=white" alt="ESLint"/>
+  <img src="https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&logoColor=black" alt="Prettier"/>
+</p>
+
+<p align="center">
+  <strong>Development & Version Control</strong><br/>
+  <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" alt="Git"/>
+  <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="GitHub"/>
+  <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" alt="Docker"/>
+  <img src="https://img.shields.io/badge/VS%20Code-007ACC?logo=visualstudiocode&logoColor=white" alt="Visual Studio Code"/>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/DB%20Checks-17-2E8B57" alt="17 Database Checks"/>
+</p>
+
+---
+
+
+<!-- [![Playwright Tests](https://github.com/mikekoe/ERPNext-analysis/actions/workflows/playwright.yml/badge.svg?branch=main)](https://github.com/mikekoe/ERPNext-analysis/actions/workflows/playwright.yml)-->
 
 A end-to-end manual and automation project that tests an ERPNext implementation configured for Greenlife Pharmaceuticals Limited, a pharmaceutical manufacturing and inventory case study set in Nigeria. It checks whether ERPNext supports procurement, batch-controlled warehouse stock, manufacturing and stock traceability correctly, using manual exploratory testing, Playwright UI automation, maria-db and Postman API tests.
 
@@ -93,43 +143,36 @@ Database validation and performance testing appear in the diagram as planned com
 
 ```text
 ERPNext-analysis/
-├── .github/workflows/playwright.yml
-├── Manual-Exploratory-evidence/       # exploratory session screenshots
+├── .github/workflows/playwright.yml      
 ├── docs/                              # BRD, test plan, RTM, exploratory log,
-│                                      # execution report, defect report
+│                                      # execution report, defect report, test summary
 ├── tests/
 │   ├── auth.setup.ts
-│   └── ui/
-│       ├── authentication/
-│       ├── inventory/
-│       └── manufacturing/
+│   └── ui
+│   └── api/postman
+│   └── performance/jmeter
+│   
 ├── GREENLIFE-ERPNext-QUALITY-ENGINEERING-ARCHITECTURE.drawio.png
 ├── Greenlife-ERPNext-Quality-Engineering-Architecture.drawio.svg
 ├── .env.example
 ├── playwright.config.ts
+├── README.md
+├── eslint.config.mjs
+├── playwright.config.ts
 ├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── .gitignore
+├── assets
+├── playwright-reports
 └── LICENSE
 ```
 
-### Workflow
+### Business Workflow
 
-//GET ITEMS => CREATE PURCHASE RECEIPT (Draft) => RETRIEVE PURCHASE RECEIPT
-
-flowchart LR
-A["GET Items"] --> B["Create Purchase Receipt<br/>(Draft)"]
-B --> C["Retrieve Purchase Receipt"]
-C --> D["Update Purchase Receipt"]
-D --> E["Submit Purchase Receipt"]
-E --> F["Verify Received Stock"]
-F --> G["Create / Verify BOM"]
-G --> H["Create Work Order"]
-H --> I["Retrieve Work Order"]
-I --> J["Start Work Order"]
-J --> K["Create Material Transfer<br/>for Manufacture"]
-K --> L["Submit Stock Entry"]
-L --> M["Verify Material Movement<br/>to WIP"]
-M --> N["Finish Work Order"]
-N --> O["Verify Finished Goods Stock"]
+<p align="center">
+  <img src="./assets/greenlife-workflow-card.svg" alt="GreenLife ERPNext tested workflow" width="900">
+</p>
 
 ---
 
@@ -143,23 +186,37 @@ The tests run against ERPNext installed locally with Frappe Bench. Install and c
 
 ```bash
 cd <Your-installation-folder>
+
 git clone https://github.com/frappe/frappe_docker.git
+
 cd frappe_docker
+
 Configure docker development environment (https://github.com/frappe/frappe_docker)
+
 docker ps -a
+
 docker exec -it frappe_docker_devcontainer-frappe-1 bash
 
 Navigate to Bench environment and initialise a bench directory
+
 cd /workspace/development/
+
 bench init greenlife-bench
 
 cd greenlife-bench
+
 bench get-app erpnext --branch version-16 (or latest branch)
+
 bench new-site greenlife.localhost       # prompts for the MariaDB root and Administrator passwords
+
 bench get-app erpnext --branch version-16
+
 bench --site greenlife.localhost install-app erpnext
+
 bench --site greenlife.localhost add-to-hosts   # only if greenlife.localhost does not resolve
+
 bench use greenlife.localhost
+
 bench start                              # the site goes live on port 8000
 ```
 
@@ -168,16 +225,21 @@ Then open `http://greenlife.localhost:8000`, log in as `Administrator` with the 
 For the tests:
 
 - Create a test user for UI login (`ERP_USERNAME`, `ERP_PASSWORD`) and generate an API key and secret for it from the user's settings in ERPNext (`ERPNEXT_API_KEY`, `ERPNEXT_API_SECRET`).
-- Create the needed dat (items, warehouses, suppliers, BOMs, batches).
+- Create the needed data (items, warehouses, suppliers, BOMs, batches).
 
 ### Local Environment Setup
 
 ```bash
 git clone git@github.com:mikekoe/ERPNext-analysis.git  # using SSH
+
 cd ERPNext-analysis
+
 git checkout feature/greenlife-pharma-QA
+
 npm ci
+
 npx playwright install
+
 cp .env.example .env     # then fill in the values; never commit .env
 ```
 
@@ -193,6 +255,8 @@ cp .env.example .env     # then fill in the values; never commit .env
 
 ## Playwright UI Automation tests
 
+**Pre-requisites**: Refer to Playwright documentation for installation requirements and steps
+
 The suite has three test areas: authentication, inventory and manufacturing. All three have been run against the local instance.
 
 **Inspecting the ERPNext UI with codegen.** Playwright's code generator was used to inspect the ERPNext local site and identify locators, assert for text and visibility. Loading the saved session opens ERPNext already logged in:
@@ -203,9 +267,13 @@ npx playwright codegen --load-storage=.auth/user.json http://greenlife.localhost
 
 ```bash
 npx playwright test                           # all tests
+
 npx playwright test tests/ui/authentication   # authentication
+
 npx playwright test tests/ui/inventory        # inventory
+
 npx playwright test tests/ui/manufacturing    # manufacturing
+
 npx playwright show-report                    # open the HTML report
 ```
 
@@ -218,8 +286,11 @@ These checks are run before pushing the code to Github.
 
 ```bash
 npm run lint            # lint
+
 npm run typecheck       # TypeScript type check
+
 npm run format:check    # check formatting
+
 npm run format          # apply formatting
 ```
 
@@ -234,18 +305,6 @@ npm run format          # apply formatting
 | 🏭 Manufacturing        |      2 |  <img src="https://img.shields.io/badge/2-passed-2EAD33?logo=playwright&logoColor=white" /> |      0 |
 | **Total**               | **20** |                                                                                    **20 ✓** |  **0** |
 
-**Playwright Execution Summary**
-
-```text
-Running 20 tests using Playwright
-
-  ✓  Authentication (7)
-  ✓  Inventory Management (11)
-  ✓  Manufacturing (2)
-
-  20 passed
-  0 failed
-```
 
 ![All Tests Passed. See Playwright-reports for details](https://img.shields.io/badge/All%20Tests-Passed-2EAD33?logo=playwright&logoColor=white)
 
@@ -345,21 +404,16 @@ Content-Type: application/json
 
 Five performance scenarios were documented: baseline, load, three stress configurations, and endurance.
 
-### 🚀 JMeter Performance Test Report
+<h3>
+  <img src="https://jmeter.apache.org/images/jmeter.png" width="24" height="24" alt="JMeter logo"/>
+  🚀 JMeter Performance Test Report
+</h3>
 
 <p align="center">
-  <img src="https://jmeter.apache.org/images/logo.svg" alt="Apache JMeter Logo" width="260">
-</p>
-
-<p align="center">
-  <strong>API Performance · Load Testing · Stress Testing · Endurance Testing</strong>
-</p>
-
-<p align="center">
-  ![Apache JMeter](https://img.shields.io/badge/Tool-Apache%20JMeter-D22128?logo=apachejmeter&logoColor=white)
-  ![Target](https://img.shields.io/badge/Target-ERPNext%20v16-blue)
-  ![Protocol](https://img.shields.io/badge/Protocol-REST%20API-green)
-  ![Test Status](https://img.shields.io/badge/Stress%20Tests-0%25%20Errors-success)
+  <img src="https://img.shields.io/badge/Stress%20Test-0%25%20Errors-success" alt="Stress Test: 0% Errors"/>
+  <img src="https://img.shields.io/badge/Total%20Samples-400-blue" alt="Total Samples: 400"/>
+  <img src="https://img.shields.io/badge/Virtual%20Users-20-orange" alt="Virtual Users: 20"/>
+  <img src="https://img.shields.io/badge/Database%20Checks-17-2E8B57" alt="Database Checks: 17"/>
 </p>
 
 ### 📊 Execution Summary
@@ -494,11 +548,15 @@ Repeat with the appropriate test plan and result file for each scenario. Ensure 
 
 ### 📑 Report and Evidence Files
 
-1. `.jmx`: This contains the JMeter test plan and configuration (Check **tests/ui/performance/jmeter/reports**)
+1. `.jmx`: This contains the JMeter test plan and configuration (Check **tests/ui/performance/jmeter**)
+
 2. `.jtl` Raw performance test results (Check **tests/ui/performance/jmeter/results**)
+
 3. HTML Dashboard (Check the **tests/ui/performance/jmeter** for index file of each test)
+
 4. CSV files of saved test results run in Jmeter (Check **tests/ui/performance/jmeter/data**)
-5. Screenshots (Check **assets/Screenshots/jmeter**)
+
+5. Screenshots (Check **assets/screenshots/jmeter**)
 
 ### 🏁 Conclusion
 
@@ -508,16 +566,12 @@ The three stress scenarios recorded zero errors, with throughput increasing as t
 
 ---
 
-<div align="center">
-<img src="https://cdn.simpleicons.org/mariadb/003545" alt="MariaDB logo" width="92" />
+
 
 ## Maria-db Database testing
 
-[![Database](https://img.shields.io/badge/Database-MariaDB-003545?logo=mariadb&logoColor=white)](https://mariadb.org/)
-[![ERPNext](https://img.shields.io/badge/ERPNext-16.55.0-0089FF)](https://erpnext.com/)
-[![Frappe](https://img.shields.io/badge/Frappe-16.56.0-0089FF)](https://frappeframework.com/)
-[![Test cases](https://img.shields.io/badge/DB%20checks-17-2E8B57)](#execution-summary)
-
+<div align="right">
+ <img src="https://cdn.simpleicons.org/mariadb/003545" alt="MariaDB logo" width="92" />
 </div>
 *Read-only database validation of purchasing, inventory, batch traceability, manufacturing and cancellation workflows.*
 
@@ -538,7 +592,7 @@ bench --site greenlife.localhost mariadb
 2. **Confirm the database connection**
 
 ```text
-MariaDB [_2d3d1cc59ac4fda8]>
+MariaDB [_db_id]>
 ```
 
 Use the SQL examples in the test sections below. Run one query at a time and compare the returned records with the assertions.
