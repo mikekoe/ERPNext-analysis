@@ -407,20 +407,3 @@ Testing effort will be prioritised according to business impact and likelihood o
 All identified risks will be documented and reviewed throughout the testing lifecycle.
 
 ---
-
-## Document Control and Approval
-
-| Role                               | Responsibility                                     | Approval Status |
-| ---------------------------------- | -------------------------------------------------- | --------------- |
-| Quality Engineer                   | Prepare and maintain the Test Plan                 | Approved        |
-| Business Representative            | Review business scope and acceptance criteria      | Approved        |
-| ERPNext / Technical Representative | Confirm environment and system configuration       | Approved        |
-| Project Stakeholder                | Review testing outcomes and release recommendation | Approved        |
-
-### Document Revision History
-
-| Version | Date             | Description       |
-| ------- | ---------------- | ----------------- |
-| 1.0     | 12 November 2026 | Initial Test Plan |
-
----

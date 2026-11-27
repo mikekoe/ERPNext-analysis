@@ -1,0 +1,601 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1795682733862,111,GET items,200,OK,Stress_Tests 1-1,text,true,,754,262,1,1,http://greenlife.localhost:8000/api/resource/Item,108,0,9
+1795682733975,91,GET Warehouses,200,OK,Stress_Tests 1-1,text,true,,859,267,1,1,http://greenlife.localhost:8000/api/resource/Warehouse,91,0,1
+1795682734067,58,GET Inventory,200,OK,Stress_Tests 1-1,text,true,,2969,372,1,1,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,57,0,1
+1795682734125,65,GET Work Order,200,OK,Stress_Tests 1-1,text,true,,3527,288,2,2,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,65,0,1
+1795682734165,61,GET items,200,OK,Stress_Tests 1-2,text,true,,754,262,2,2,http://greenlife.localhost:8000/api/resource/Item,61,0,0
+1795682734191,58,GET items,200,OK,Stress_Tests 1-1,text,true,,754,262,2,2,http://greenlife.localhost:8000/api/resource/Item,58,0,1
+1795682734227,55,GET Warehouses,200,OK,Stress_Tests 1-2,text,true,,859,267,2,2,http://greenlife.localhost:8000/api/resource/Warehouse,55,0,1
+1795682734250,56,GET Warehouses,200,OK,Stress_Tests 1-1,text,true,,859,267,2,2,http://greenlife.localhost:8000/api/resource/Warehouse,56,0,0
+1795682734283,57,GET Inventory,200,OK,Stress_Tests 1-2,text,true,,2969,372,2,2,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,57,0,1
+1795682734307,56,GET Inventory,200,OK,Stress_Tests 1-1,text,true,,2969,372,2,2,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,56,0,1
+1795682734340,60,GET Work Order,200,OK,Stress_Tests 1-2,text,true,,3527,288,2,2,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,60,0,1
+1795682734364,62,GET Work Order,200,OK,Stress_Tests 1-1,text,true,,3527,288,2,2,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,61,0,0
+1795682734401,56,GET items,200,OK,Stress_Tests 1-2,text,true,,754,262,2,2,http://greenlife.localhost:8000/api/resource/Item,56,0,0
+1795682734426,57,GET items,200,OK,Stress_Tests 1-1,text,true,,754,262,2,2,http://greenlife.localhost:8000/api/resource/Item,57,0,1
+1795682734458,62,GET Warehouses,200,OK,Stress_Tests 1-2,text,true,,859,267,3,3,http://greenlife.localhost:8000/api/resource/Warehouse,62,0,1
+1795682734483,60,GET Warehouses,200,OK,Stress_Tests 1-1,text,true,,859,267,3,3,http://greenlife.localhost:8000/api/resource/Warehouse,60,0,1
+1795682734497,71,GET items,200,OK,Stress_Tests 1-3,text,true,,754,262,3,3,http://greenlife.localhost:8000/api/resource/Item,70,0,1
+1795682734521,61,GET Inventory,200,OK,Stress_Tests 1-2,text,true,,2969,372,3,3,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,61,0,0
+1795682734544,64,GET Inventory,200,OK,Stress_Tests 1-1,text,true,,2969,372,3,3,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,64,0,0
+1795682734568,67,GET Warehouses,200,OK,Stress_Tests 1-3,text,true,,859,267,3,3,http://greenlife.localhost:8000/api/resource/Warehouse,66,0,1
+1795682734582,67,GET Work Order,200,OK,Stress_Tests 1-2,text,true,,3527,288,3,3,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,67,0,1
+1795682734609,67,GET Work Order,200,OK,Stress_Tests 1-1,text,true,,3527,288,3,3,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,67,0,0
+1795682734635,64,GET Inventory,200,OK,Stress_Tests 1-3,text,true,,2969,372,3,3,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,64,0,1
+1795682734650,60,GET items,200,OK,Stress_Tests 1-2,text,true,,754,262,3,3,http://greenlife.localhost:8000/api/resource/Item,60,0,0
+1795682734679,60,GET items,200,OK,Stress_Tests 1-1,text,true,,754,262,3,3,http://greenlife.localhost:8000/api/resource/Item,60,0,1
+1795682734699,63,GET Work Order,200,OK,Stress_Tests 1-3,text,true,,3527,288,3,3,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,63,0,1
+1795682734711,59,GET Warehouses,200,OK,Stress_Tests 1-2,text,true,,859,267,3,3,http://greenlife.localhost:8000/api/resource/Warehouse,59,0,0
+1795682734739,62,GET Warehouses,200,OK,Stress_Tests 1-1,text,true,,859,267,3,3,http://greenlife.localhost:8000/api/resource/Warehouse,62,0,1
+1795682734763,61,GET items,200,OK,Stress_Tests 1-3,text,true,,754,262,3,3,http://greenlife.localhost:8000/api/resource/Item,60,0,0
+1795682734770,60,GET Inventory,200,OK,Stress_Tests 1-2,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,59,0,1
+1795682734802,65,GET Inventory,200,OK,Stress_Tests 1-1,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,64,0,1
+1795682734824,70,GET Warehouses,200,OK,Stress_Tests 1-3,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,70,0,1
+1795682734829,68,GET items,200,OK,Stress_Tests 1-4,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,68,0,1
+1795682734830,68,GET Work Order,200,OK,Stress_Tests 1-2,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,67,0,1
+1795682734867,69,GET Work Order,200,OK,Stress_Tests 1-1,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,69,0,1
+1795682734895,66,GET Inventory,200,OK,Stress_Tests 1-3,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,66,0,1
+1795682734898,63,GET items,200,OK,Stress_Tests 1-2,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,63,0,1
+1795682734898,64,GET Warehouses,200,OK,Stress_Tests 1-4,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,64,0,1
+1795682734937,74,GET items,200,OK,Stress_Tests 1-1,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,74,0,0
+1795682734963,72,GET Inventory,200,OK,Stress_Tests 1-4,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,72,0,1
+1795682734961,75,GET Warehouses,200,OK,Stress_Tests 1-2,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,75,0,1
+1795682734961,80,GET Work Order,200,OK,Stress_Tests 1-3,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,80,0,1
+1795682735012,69,GET Warehouses,200,OK,Stress_Tests 1-1,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,69,0,1
+1795682735036,70,GET Inventory,200,OK,Stress_Tests 1-2,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,70,0,1
+1795682735042,65,GET items,200,OK,Stress_Tests 1-3,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,65,0,1
+1795682735035,78,GET Work Order,200,OK,Stress_Tests 1-4,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,78,0,1
+1795682735082,72,GET Inventory,200,OK,Stress_Tests 1-1,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,72,0,1
+1795682735114,71,GET items,200,OK,Stress_Tests 1-4,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,71,0,0
+1795682735108,79,GET Warehouses,200,OK,Stress_Tests 1-3,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,79,0,0
+1795682735107,80,GET Work Order,200,OK,Stress_Tests 1-2,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,80,0,0
+1795682735154,82,GET Work Order,200,OK,Stress_Tests 1-1,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,82,0,1
+1795682735161,85,GET items,200,OK,Stress_Tests 1-5,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,85,0,1
+1795682735187,69,GET Inventory,200,OK,Stress_Tests 1-3,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,69,0,1
+1795682735186,73,GET Warehouses,200,OK,Stress_Tests 1-4,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,73,0,1
+1795682735188,71,GET items,200,OK,Stress_Tests 1-2,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,71,0,0
+1795682735247,66,GET Warehouses,200,OK,Stress_Tests 1-5,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,66,0,0
+1795682735260,67,GET Inventory,200,OK,Stress_Tests 1-4,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,66,0,0
+1795682735257,73,GET Work Order,200,OK,Stress_Tests 1-3,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,73,0,0
+1795682735260,70,GET Warehouses,200,OK,Stress_Tests 1-2,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,70,0,0
+1795682735314,66,GET Inventory,200,OK,Stress_Tests 1-5,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,66,0,0
+1795682735327,71,GET Work Order,200,OK,Stress_Tests 1-4,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,71,0,1
+1795682735330,68,GET items,200,OK,Stress_Tests 1-3,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,68,0,1
+1795682735330,70,GET Inventory,200,OK,Stress_Tests 1-2,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,70,0,1
+1795682735380,75,GET Work Order,200,OK,Stress_Tests 1-5,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,75,0,1
+1795682735399,77,GET Warehouses,200,OK,Stress_Tests 1-3,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,77,0,1
+1795682735400,79,GET Work Order,200,OK,Stress_Tests 1-2,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,79,0,1
+1795682735399,81,GET items,200,OK,Stress_Tests 1-4,text,true,,754,262,3,3,http://greenlife.localhost:8000/api/resource/Item,81,0,1
+1795682735455,68,GET items,200,OK,Stress_Tests 1-5,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,68,0,1
+1795682735476,65,GET Inventory,200,OK,Stress_Tests 1-3,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,65,0,1
+1795682735480,70,GET Warehouses,200,OK,Stress_Tests 1-4,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,70,0,1
+1795682735495,69,GET items,200,OK,Stress_Tests 1-6,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,69,0,1
+1795682735524,71,GET Warehouses,200,OK,Stress_Tests 1-5,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,71,0,0
+1795682735551,66,GET Inventory,200,OK,Stress_Tests 1-4,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,66,0,0
+1795682735541,79,GET Work Order,200,OK,Stress_Tests 1-3,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,78,0,1
+1795682735564,67,GET Warehouses,200,OK,Stress_Tests 1-6,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,67,0,1
+1795682735595,70,GET Inventory,200,OK,Stress_Tests 1-5,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,70,0,1
+1795682735620,68,GET items,200,OK,Stress_Tests 1-3,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,68,0,1
+1795682735618,71,GET Work Order,200,OK,Stress_Tests 1-4,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,71,0,1
+1795682735631,70,GET Inventory,200,OK,Stress_Tests 1-6,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,69,0,1
+1795682735666,68,GET Work Order,200,OK,Stress_Tests 1-5,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,68,0,0
+1795682735689,67,GET Warehouses,200,OK,Stress_Tests 1-3,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,66,0,1
+1795682735690,67,GET items,200,OK,Stress_Tests 1-4,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,67,0,0
+1795682735701,79,GET Work Order,200,OK,Stress_Tests 1-6,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,79,0,1
+1795682735735,70,GET items,200,OK,Stress_Tests 1-5,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,69,0,0
+1795682735757,67,GET Warehouses,200,OK,Stress_Tests 1-4,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,67,0,1
+1795682735756,68,GET Inventory,200,OK,Stress_Tests 1-3,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,68,0,1
+1795682735781,68,GET items,200,OK,Stress_Tests 1-6,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,67,0,0
+1795682735805,74,GET Warehouses,200,OK,Stress_Tests 1-5,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,74,0,1
+1795682735825,76,GET Work Order,200,OK,Stress_Tests 1-3,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,76,0,0
+1795682735830,76,GET items,200,OK,Stress_Tests 1-7,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,76,0,0
+1795682735825,82,GET Inventory,200,OK,Stress_Tests 1-4,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,82,0,0
+1795682735849,68,GET Warehouses,200,OK,Stress_Tests 1-6,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,68,0,0
+1795682735880,71,GET Inventory,200,OK,Stress_Tests 1-5,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,71,0,0
+1795682735906,70,GET Warehouses,200,OK,Stress_Tests 1-7,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,70,0,1
+1795682735907,73,GET Work Order,200,OK,Stress_Tests 1-4,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,73,0,1
+1795682735918,63,GET Inventory,200,OK,Stress_Tests 1-6,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,63,0,1
+1795682735952,72,GET Work Order,200,OK,Stress_Tests 1-5,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,72,0,1
+1795682735977,69,GET Inventory,200,OK,Stress_Tests 1-7,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,69,0,0
+1795682735981,69,GET items,200,OK,Stress_Tests 1-4,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,69,0,1
+1795682735982,73,GET Work Order,200,OK,Stress_Tests 1-6,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,73,0,0
+1795682736025,70,GET items,200,OK,Stress_Tests 1-5,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,70,0,0
+1795682736051,67,GET Warehouses,200,OK,Stress_Tests 1-4,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,67,0,1
+1795682736046,77,GET Work Order,200,OK,Stress_Tests 1-7,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,77,0,1
+1795682736055,73,GET items,200,OK,Stress_Tests 1-6,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,73,0,1
+1795682736095,73,GET Warehouses,200,OK,Stress_Tests 1-5,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,73,0,1
+1795682736129,90,GET Warehouses,200,OK,Stress_Tests 1-6,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,90,0,0
+1795682736119,104,GET Inventory,200,OK,Stress_Tests 1-4,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,104,0,0
+1795682736124,99,GET items,200,OK,Stress_Tests 1-7,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,99,0,0
+1795682736168,97,GET Inventory,200,OK,Stress_Tests 1-5,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,97,0,1
+1795682736164,105,GET items,200,OK,Stress_Tests 1-8,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,105,0,0
+1795682736219,78,GET Inventory,200,OK,Stress_Tests 1-6,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,78,0,1
+1795682736224,74,GET Work Order,200,OK,Stress_Tests 1-4,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,74,0,0
+1795682736224,86,GET Warehouses,200,OK,Stress_Tests 1-7,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,86,0,0
+1795682736266,72,GET Work Order,200,OK,Stress_Tests 1-5,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,72,0,0
+1795682736270,77,GET Warehouses,200,OK,Stress_Tests 1-8,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,77,0,1
+1795682736298,71,GET Work Order,200,OK,Stress_Tests 1-6,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,71,0,0
+1795682736310,70,GET Inventory,200,OK,Stress_Tests 1-7,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,70,0,1
+1795682736338,72,GET items,200,OK,Stress_Tests 1-5,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,72,0,1
+1795682736347,76,GET Inventory,200,OK,Stress_Tests 1-8,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,76,0,1
+1795682736370,77,GET items,200,OK,Stress_Tests 1-6,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,77,0,0
+1795682736381,77,GET Work Order,200,OK,Stress_Tests 1-7,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,77,0,0
+1795682736410,74,GET Warehouses,200,OK,Stress_Tests 1-5,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,74,0,1
+1795682736423,74,GET Work Order,200,OK,Stress_Tests 1-8,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,74,0,1
+1795682736447,74,GET Warehouses,200,OK,Stress_Tests 1-6,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,74,0,1
+1795682736459,75,GET items,200,OK,Stress_Tests 1-7,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,75,0,0
+1795682736484,78,GET Inventory,200,OK,Stress_Tests 1-5,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,78,0,1
+1795682736497,71,GET items,200,OK,Stress_Tests 1-8,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,71,0,1
+1795682736494,78,GET items,200,OK,Stress_Tests 1-9,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,78,0,0
+1795682736522,80,GET Inventory,200,OK,Stress_Tests 1-6,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,80,0,1
+1795682736535,76,GET Warehouses,200,OK,Stress_Tests 1-7,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,76,0,0
+1795682736562,77,GET Work Order,200,OK,Stress_Tests 1-5,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,77,0,1
+1795682736569,80,GET Warehouses,200,OK,Stress_Tests 1-8,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,80,0,1
+1795682736573,80,GET Warehouses,200,OK,Stress_Tests 1-9,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,80,0,1
+1795682736603,82,GET Work Order,200,OK,Stress_Tests 1-6,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,82,0,0
+1795682736612,73,GET Inventory,200,OK,Stress_Tests 1-7,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,73,0,1
+1795682736649,69,GET Inventory,200,OK,Stress_Tests 1-8,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,69,0,1
+1795682736653,68,GET Inventory,200,OK,Stress_Tests 1-9,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,68,0,1
+1795682736685,70,GET items,200,OK,Stress_Tests 1-6,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,70,0,1
+1795682736686,69,GET Work Order,200,OK,Stress_Tests 1-7,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,69,0,0
+1795682736719,69,GET Work Order,200,OK,Stress_Tests 1-8,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,69,0,0
+1795682736722,69,GET Work Order,200,OK,Stress_Tests 1-9,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,69,0,0
+1795682736755,67,GET items,200,OK,Stress_Tests 1-7,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,67,0,1
+1795682736755,67,GET Warehouses,200,OK,Stress_Tests 1-6,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,67,0,1
+1795682736792,66,GET items,200,OK,Stress_Tests 1-9,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,65,0,0
+1795682736789,69,GET items,200,OK,Stress_Tests 1-8,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,69,0,0
+1795682736822,71,GET Warehouses,200,OK,Stress_Tests 1-7,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,71,0,1
+1795682736822,72,GET Inventory,200,OK,Stress_Tests 1-6,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,72,0,1
+1795682736831,74,GET items,200,OK,Stress_Tests 1-10,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,74,0,1
+1795682736858,74,GET Warehouses,200,OK,Stress_Tests 1-8,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,74,0,1
+1795682736858,75,GET Warehouses,200,OK,Stress_Tests 1-9,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,75,0,0
+1795682736894,72,GET Inventory,200,OK,Stress_Tests 1-7,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,71,0,0
+1795682736894,76,GET Work Order,200,OK,Stress_Tests 1-6,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,76,0,1
+1795682736905,75,GET Warehouses,200,OK,Stress_Tests 1-10,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,74,0,1
+1795682736933,73,GET Inventory,200,OK,Stress_Tests 1-8,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,73,0,0
+1795682736934,72,GET Inventory,200,OK,Stress_Tests 1-9,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,72,0,0
+1795682736966,72,GET Work Order,200,OK,Stress_Tests 1-7,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,72,0,0
+1795682736980,67,GET Inventory,200,OK,Stress_Tests 1-10,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,67,0,1
+1795682737007,70,GET Work Order,200,OK,Stress_Tests 1-9,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,70,0,0
+1795682737007,70,GET Work Order,200,OK,Stress_Tests 1-8,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,70,0,0
+1795682737038,70,GET items,200,OK,Stress_Tests 1-7,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,70,0,1
+1795682737048,65,GET Work Order,200,OK,Stress_Tests 1-10,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,65,0,0
+1795682737077,64,GET items,200,OK,Stress_Tests 1-8,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,64,0,1
+1795682737077,66,GET items,200,OK,Stress_Tests 1-9,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,66,0,1
+1795682737108,68,GET Warehouses,200,OK,Stress_Tests 1-7,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,68,0,1
+1795682737114,69,GET items,200,OK,Stress_Tests 1-10,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,69,0,0
+1795682737143,74,GET Warehouses,200,OK,Stress_Tests 1-9,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,74,0,1
+1795682737142,75,GET Warehouses,200,OK,Stress_Tests 1-8,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,75,0,0
+1795682737159,76,GET items,200,OK,Stress_Tests 1-11,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,76,0,1
+1795682737184,72,GET Warehouses,200,OK,Stress_Tests 1-10,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,72,0,0
+1795682737176,80,GET Inventory,200,OK,Stress_Tests 1-7,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,80,0,1
+1795682737217,74,GET Inventory,200,OK,Stress_Tests 1-8,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,74,0,1
+1795682737217,77,GET Inventory,200,OK,Stress_Tests 1-9,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,77,0,1
+1795682737236,73,GET Warehouses,200,OK,Stress_Tests 1-11,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,73,0,1
+1795682737256,73,GET Inventory,200,OK,Stress_Tests 1-10,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,73,0,1
+1795682737256,87,GET Work Order,200,OK,Stress_Tests 1-7,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,87,0,1
+1795682737295,72,GET Work Order,200,OK,Stress_Tests 1-9,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,71,0,0
+1795682737292,79,GET Work Order,200,OK,Stress_Tests 1-8,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,79,0,0
+1795682737309,74,GET Inventory,200,OK,Stress_Tests 1-11,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,74,0,1
+1795682737330,76,GET Work Order,200,OK,Stress_Tests 1-10,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,76,0,0
+1795682737367,75,GET items,200,OK,Stress_Tests 1-9,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,75,0,0
+1795682737371,71,GET items,200,OK,Stress_Tests 1-8,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,71,0,1
+1795682737384,75,GET Work Order,200,OK,Stress_Tests 1-11,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,75,0,0
+1795682737406,64,GET items,200,OK,Stress_Tests 1-10,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,64,0,1
+1795682737442,75,GET Warehouses,200,OK,Stress_Tests 1-9,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,75,0,1
+1795682737443,74,GET Warehouses,200,OK,Stress_Tests 1-8,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,74,0,0
+1795682737460,79,GET items,200,OK,Stress_Tests 1-11,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,79,0,1
+1795682737471,74,GET Warehouses,200,OK,Stress_Tests 1-10,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,74,0,0
+1795682737492,73,GET items,200,OK,Stress_Tests 1-12,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,73,0,1
+1795682737518,79,GET Inventory,200,OK,Stress_Tests 1-8,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,79,0,1
+1795682737517,80,GET Inventory,200,OK,Stress_Tests 1-9,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,80,0,1
+1795682737539,78,GET Warehouses,200,OK,Stress_Tests 1-11,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,78,0,1
+1795682737545,74,GET Inventory,200,OK,Stress_Tests 1-10,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,74,0,1
+1795682737566,77,GET Warehouses,200,OK,Stress_Tests 1-12,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,76,0,0
+1795682737597,84,GET Work Order,200,OK,Stress_Tests 1-9,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,84,0,1
+1795682737597,87,GET Work Order,200,OK,Stress_Tests 1-8,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,87,0,1
+1795682737618,79,GET Inventory,200,OK,Stress_Tests 1-11,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,79,0,1
+1795682737619,81,GET Work Order,200,OK,Stress_Tests 1-10,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,81,0,1
+1795682737643,72,GET Inventory,200,OK,Stress_Tests 1-12,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,72,0,1
+1795682737681,78,GET items,200,OK,Stress_Tests 1-9,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,78,0,1
+1795682737701,72,GET items,200,OK,Stress_Tests 1-10,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,72,0,0
+1795682737698,75,GET Work Order,200,OK,Stress_Tests 1-11,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,75,0,0
+1795682737716,77,GET Work Order,200,OK,Stress_Tests 1-12,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,77,0,0
+1795682737760,72,GET Warehouses,200,OK,Stress_Tests 1-9,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,72,0,0
+1795682737774,67,GET items,200,OK,Stress_Tests 1-11,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,67,0,0
+1795682737773,69,GET Warehouses,200,OK,Stress_Tests 1-10,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,69,0,1
+1795682737793,72,GET items,200,OK,Stress_Tests 1-12,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,72,0,1
+1795682737825,73,GET items,200,OK,Stress_Tests 1-13,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,73,0,0
+1795682737833,71,GET Inventory,200,OK,Stress_Tests 1-9,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,71,0,0
+1795682737841,74,GET Warehouses,200,OK,Stress_Tests 1-11,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,73,0,1
+1795682737843,72,GET Inventory,200,OK,Stress_Tests 1-10,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,72,0,0
+1795682737865,75,GET Warehouses,200,OK,Stress_Tests 1-12,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,75,0,1
+1795682737898,75,GET Warehouses,200,OK,Stress_Tests 1-13,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,75,0,1
+1795682737905,78,GET Work Order,200,OK,Stress_Tests 1-9,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,78,0,0
+1795682737915,72,GET Inventory,200,OK,Stress_Tests 1-11,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,72,0,0
+1795682737916,76,GET Work Order,200,OK,Stress_Tests 1-10,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,76,0,0
+1795682737940,81,GET Inventory,200,OK,Stress_Tests 1-12,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,81,0,1
+1795682737973,74,GET Inventory,200,OK,Stress_Tests 1-13,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,74,0,1
+1795682737992,65,GET items,200,OK,Stress_Tests 1-10,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,65,0,1
+1795682737988,72,GET Work Order,200,OK,Stress_Tests 1-11,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,72,0,1
+1795682738022,76,GET Work Order,200,OK,Stress_Tests 1-12,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,76,0,0
+1795682738048,74,GET Work Order,200,OK,Stress_Tests 1-13,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,74,0,0
+1795682738061,70,GET items,200,OK,Stress_Tests 1-11,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,70,0,0
+1795682738057,78,GET Warehouses,200,OK,Stress_Tests 1-10,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,78,0,1
+1795682738099,68,GET items,200,OK,Stress_Tests 1-12,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,68,0,0
+1795682738122,97,GET items,200,OK,Stress_Tests 1-13,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,97,0,1
+1795682738132,90,GET Warehouses,200,OK,Stress_Tests 1-11,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,90,0,0
+1795682738136,127,GET Inventory,200,OK,Stress_Tests 1-10,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,127,0,1
+1795682738159,118,GET items,200,OK,Stress_Tests 1-14,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,118,0,1
+1795682738168,116,GET Warehouses,200,OK,Stress_Tests 1-12,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,115,0,0
+1795682738222,98,GET Inventory,200,OK,Stress_Tests 1-11,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,98,0,1
+1795682738219,112,GET Warehouses,200,OK,Stress_Tests 1-13,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,112,0,1
+1795682738264,78,GET Work Order,200,OK,Stress_Tests 1-10,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,78,0,0
+1795682738284,72,GET Inventory,200,OK,Stress_Tests 1-12,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,71,0,1
+1795682738277,80,GET Warehouses,200,OK,Stress_Tests 1-14,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,80,0,1
+1795682738332,70,GET Inventory,200,OK,Stress_Tests 1-13,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,70,0,0
+1795682738321,89,GET Work Order,200,OK,Stress_Tests 1-11,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,89,0,0
+1795682738357,71,GET Inventory,200,OK,Stress_Tests 1-14,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,71,0,1
+1795682738356,72,GET Work Order,200,OK,Stress_Tests 1-12,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,72,0,1
+1795682738403,71,GET Work Order,200,OK,Stress_Tests 1-13,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,71,0,0
+1795682738410,76,GET items,200,OK,Stress_Tests 1-11,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,75,0,1
+1795682738429,69,GET items,200,OK,Stress_Tests 1-12,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,69,0,0
+1795682738428,76,GET Work Order,200,OK,Stress_Tests 1-14,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,76,0,1
+1795682738474,83,GET items,200,OK,Stress_Tests 1-13,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,83,0,1
+1795682738486,81,GET Warehouses,200,OK,Stress_Tests 1-11,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,81,0,0
+1795682738491,87,GET items,200,OK,Stress_Tests 1-15,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,87,0,1
+1795682738505,76,GET items,200,OK,Stress_Tests 1-14,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,76,0,0
+1795682738498,87,GET Warehouses,200,OK,Stress_Tests 1-12,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,87,0,1
+1795682738558,73,GET Warehouses,200,OK,Stress_Tests 1-13,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,73,0,0
+1795682738567,82,GET Inventory,200,OK,Stress_Tests 1-11,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,82,0,1
+1795682738582,81,GET Warehouses,200,OK,Stress_Tests 1-14,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,81,0,0
+1795682738578,90,GET Warehouses,200,OK,Stress_Tests 1-15,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,89,0,1
+1795682738586,82,GET Inventory,200,OK,Stress_Tests 1-12,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,82,0,0
+1795682738631,84,GET Inventory,200,OK,Stress_Tests 1-13,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,84,0,1
+1795682738649,89,GET Work Order,200,OK,Stress_Tests 1-11,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,89,0,1
+1795682738668,74,GET Inventory,200,OK,Stress_Tests 1-15,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,73,0,1
+1795682738664,78,GET Inventory,200,OK,Stress_Tests 1-14,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,77,0,1
+1795682738668,79,GET Work Order,200,OK,Stress_Tests 1-12,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,79,0,1
+1795682738715,70,GET Work Order,200,OK,Stress_Tests 1-13,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,70,0,1
+1795682738742,67,GET Work Order,200,OK,Stress_Tests 1-14,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,67,0,1
+1795682738742,71,GET Work Order,200,OK,Stress_Tests 1-15,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,71,0,1
+1795682738747,70,GET items,200,OK,Stress_Tests 1-12,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,69,0,1
+1795682738786,72,GET items,200,OK,Stress_Tests 1-13,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,72,0,0
+1795682738814,70,GET items,200,OK,Stress_Tests 1-15,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,70,0,0
+1795682738810,77,GET items,200,OK,Stress_Tests 1-14,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,77,0,0
+1795682738817,74,GET Warehouses,200,OK,Stress_Tests 1-12,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,74,0,0
+1795682738824,80,GET items,200,OK,Stress_Tests 1-16,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,80,0,1
+1795682738859,78,GET Warehouses,200,OK,Stress_Tests 1-13,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,78,0,0
+1795682738884,80,GET Warehouses,200,OK,Stress_Tests 1-15,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,80,0,1
+1795682738891,75,GET Inventory,200,OK,Stress_Tests 1-12,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,75,0,1
+1795682738888,78,GET Warehouses,200,OK,Stress_Tests 1-14,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,78,0,0
+1795682738905,77,GET Warehouses,200,OK,Stress_Tests 1-16,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,77,0,0
+1795682738938,75,GET Inventory,200,OK,Stress_Tests 1-13,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,75,0,0
+1795682738966,68,GET Inventory,200,OK,Stress_Tests 1-14,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,68,0,1
+1795682738965,78,GET Inventory,200,OK,Stress_Tests 1-15,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,78,0,0
+1795682738966,82,GET Work Order,200,OK,Stress_Tests 1-12,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,82,0,1
+1795682738983,73,GET Inventory,200,OK,Stress_Tests 1-16,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,73,0,0
+1795682739013,76,GET Work Order,200,OK,Stress_Tests 1-13,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,76,0,1
+1795682739035,73,GET Work Order,200,OK,Stress_Tests 1-14,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,73,0,0
+1795682739043,75,GET Work Order,200,OK,Stress_Tests 1-15,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,75,0,1
+1795682739057,72,GET Work Order,200,OK,Stress_Tests 1-16,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,72,0,0
+1795682739089,71,GET items,200,OK,Stress_Tests 1-13,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,71,0,1
+1795682739108,74,GET items,200,OK,Stress_Tests 1-14,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,73,0,1
+1795682739119,74,GET items,200,OK,Stress_Tests 1-15,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,74,0,0
+1795682739129,72,GET items,200,OK,Stress_Tests 1-16,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,72,0,1
+1795682739158,77,GET items,200,OK,Stress_Tests 1-17,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,77,0,0
+1795682739160,82,GET Warehouses,200,OK,Stress_Tests 1-13,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,82,0,1
+1795682739182,75,GET Warehouses,200,OK,Stress_Tests 1-14,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,75,0,0
+1795682739194,78,GET Warehouses,200,OK,Stress_Tests 1-15,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,78,0,0
+1795682739201,78,GET Warehouses,200,OK,Stress_Tests 1-16,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,78,0,1
+1795682739236,80,GET Warehouses,200,OK,Stress_Tests 1-17,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,80,0,0
+1795682739243,80,GET Inventory,200,OK,Stress_Tests 1-13,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,80,0,0
+1795682739257,77,GET Inventory,200,OK,Stress_Tests 1-14,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,76,0,1
+1795682739273,82,GET Inventory,200,OK,Stress_Tests 1-15,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,82,0,0
+1795682739280,80,GET Inventory,200,OK,Stress_Tests 1-16,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,80,0,0
+1795682739317,77,GET Inventory,200,OK,Stress_Tests 1-17,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,77,0,0
+1795682739323,75,GET Work Order,200,OK,Stress_Tests 1-13,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,75,0,1
+1795682739334,76,GET Work Order,200,OK,Stress_Tests 1-14,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,76,0,1
+1795682739355,76,GET Work Order,200,OK,Stress_Tests 1-15,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,75,0,1
+1795682739360,72,GET Work Order,200,OK,Stress_Tests 1-16,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,72,0,1
+1795682739394,72,GET Work Order,200,OK,Stress_Tests 1-17,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,72,0,1
+1795682739411,69,GET items,200,OK,Stress_Tests 1-14,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,68,0,0
+1795682739432,69,GET items,200,OK,Stress_Tests 1-16,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,69,0,1
+1795682739431,70,GET items,200,OK,Stress_Tests 1-15,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,70,0,1
+1795682739467,81,GET items,200,OK,Stress_Tests 1-17,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,81,0,0
+1795682739480,82,GET Warehouses,200,OK,Stress_Tests 1-14,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,82,0,1
+1795682739491,78,GET items,200,OK,Stress_Tests 1-18,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,78,0,1
+1795682739501,81,GET Warehouses,200,OK,Stress_Tests 1-16,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,81,0,0
+1795682739501,81,GET Warehouses,200,OK,Stress_Tests 1-15,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,81,0,1
+1795682739549,77,GET Warehouses,200,OK,Stress_Tests 1-17,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,77,0,0
+1795682739562,79,GET Inventory,200,OK,Stress_Tests 1-14,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,79,0,1
+1795682739569,73,GET Warehouses,200,OK,Stress_Tests 1-18,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,72,0,1
+1795682739582,75,GET Inventory,200,OK,Stress_Tests 1-16,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,75,0,1
+1795682739583,91,GET Inventory,200,OK,Stress_Tests 1-15,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,91,0,0
+1795682739626,81,GET Inventory,200,OK,Stress_Tests 1-17,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,81,0,1
+1795682739642,76,GET Inventory,200,OK,Stress_Tests 1-18,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,76,0,0
+1795682739642,77,GET Work Order,200,OK,Stress_Tests 1-14,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,77,0,0
+1795682739657,87,GET Work Order,200,OK,Stress_Tests 1-16,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,87,0,1
+1795682739674,102,GET Work Order,200,OK,Stress_Tests 1-15,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,102,0,1
+1795682739707,97,GET Work Order,200,OK,Stress_Tests 1-17,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,97,0,1
+1795682739718,92,GET Work Order,200,OK,Stress_Tests 1-18,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,92,0,1
+1795682739745,78,GET items,200,OK,Stress_Tests 1-16,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,78,0,0
+1795682739776,102,GET items,200,OK,Stress_Tests 1-15,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,102,0,1
+1795682739804,84,GET items,200,OK,Stress_Tests 1-17,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,84,0,2
+1795682739811,87,GET items,200,OK,Stress_Tests 1-18,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,87,0,0
+1795682739825,93,GET items,200,OK,Stress_Tests 1-19,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,93,0,0
+1795682739823,98,GET Warehouses,200,OK,Stress_Tests 1-16,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,98,0,1
+1795682739878,87,GET Warehouses,200,OK,Stress_Tests 1-15,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,87,0,1
+1795682739889,77,GET Warehouses,200,OK,Stress_Tests 1-17,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,77,0,0
+1795682739899,81,GET Warehouses,200,OK,Stress_Tests 1-18,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,81,0,0
+1795682739918,77,GET Warehouses,200,OK,Stress_Tests 1-19,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,77,0,1
+1795682739922,73,GET Inventory,200,OK,Stress_Tests 1-16,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,73,0,0
+1795682739967,86,GET Inventory,200,OK,Stress_Tests 1-17,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,86,0,0
+1795682739966,89,GET Inventory,200,OK,Stress_Tests 1-15,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,89,0,0
+1795682739981,92,GET Inventory,200,OK,Stress_Tests 1-18,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,92,0,0
+1795682739996,85,GET Inventory,200,OK,Stress_Tests 1-19,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,84,0,0
+1795682739996,93,GET Work Order,200,OK,Stress_Tests 1-16,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,93,0,0
+1795682740054,86,GET Work Order,200,OK,Stress_Tests 1-17,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,86,0,0
+1795682740055,85,GET Work Order,200,OK,Stress_Tests 1-15,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,85,0,1
+1795682740073,80,GET Work Order,200,OK,Stress_Tests 1-18,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,80,0,1
+1795682740081,82,GET Work Order,200,OK,Stress_Tests 1-19,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,82,0,0
+1795682740089,80,GET items,200,OK,Stress_Tests 1-16,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,80,0,1
+1795682740140,78,GET items,200,OK,Stress_Tests 1-17,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,77,0,1
+1795682740157,73,GET items,200,OK,Stress_Tests 1-20,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,73,0,0
+1795682740153,78,GET items,200,OK,Stress_Tests 1-18,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,78,0,1
+1795682740164,77,GET items,200,OK,Stress_Tests 1-19,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,77,0,0
+1795682740169,76,GET Warehouses,200,OK,Stress_Tests 1-16,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,76,0,1
+1795682740218,78,GET Warehouses,200,OK,Stress_Tests 1-17,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,78,0,0
+1795682740231,77,GET Warehouses,200,OK,Stress_Tests 1-18,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,77,0,0
+1795682740231,78,GET Warehouses,200,OK,Stress_Tests 1-20,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,78,0,0
+1795682740242,78,GET Warehouses,200,OK,Stress_Tests 1-19,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,78,0,0
+1795682740246,79,GET Inventory,200,OK,Stress_Tests 1-16,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,79,0,0
+1795682740296,80,GET Inventory,200,OK,Stress_Tests 1-17,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,80,0,1
+1795682740309,77,GET Inventory,200,OK,Stress_Tests 1-18,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,77,0,0
+1795682740309,78,GET Inventory,200,OK,Stress_Tests 1-20,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,78,0,0
+1795682740320,71,GET Inventory,200,OK,Stress_Tests 1-19,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,71,0,1
+1795682740325,77,GET Work Order,200,OK,Stress_Tests 1-16,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,77,0,1
+1795682740376,74,GET Work Order,200,OK,Stress_Tests 1-17,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,74,0,1
+1795682740392,66,GET Work Order,200,OK,Stress_Tests 1-19,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,66,0,0
+1795682740387,72,GET Work Order,200,OK,Stress_Tests 1-18,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,72,0,0
+1795682740387,75,GET Work Order,200,OK,Stress_Tests 1-20,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,75,0,0
+1795682740451,73,GET items,200,OK,Stress_Tests 1-17,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,73,0,0
+1795682740459,72,GET items,200,OK,Stress_Tests 1-18,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,72,0,1
+1795682740459,75,GET items,200,OK,Stress_Tests 1-19,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,75,0,0
+1795682740463,86,GET items,200,OK,Stress_Tests 1-20,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,86,0,0
+1795682740492,88,GET items,200,OK,Stress_Tests 1-21,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,88,0,0
+1795682740532,77,GET Warehouses,200,OK,Stress_Tests 1-18,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,77,0,0
+1795682740535,74,GET Warehouses,200,OK,Stress_Tests 1-19,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,74,0,0
+1795682740525,88,GET Warehouses,200,OK,Stress_Tests 1-17,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,88,0,0
+1795682740549,83,GET Warehouses,200,OK,Stress_Tests 1-20,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,83,0,1
+1795682740580,82,GET Warehouses,200,OK,Stress_Tests 1-21,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,82,0,1
+1795682740614,68,GET Inventory,200,OK,Stress_Tests 1-17,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,68,0,0
+1795682740610,76,GET Inventory,200,OK,Stress_Tests 1-18,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,76,0,0
+1795682740610,77,GET Inventory,200,OK,Stress_Tests 1-19,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,77,0,0
+1795682740633,85,GET Inventory,200,OK,Stress_Tests 1-20,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,85,0,0
+1795682740663,84,GET Inventory,200,OK,Stress_Tests 1-21,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,84,0,0
+1795682740683,79,GET Work Order,200,OK,Stress_Tests 1-17,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,79,0,0
+1795682740686,76,GET Work Order,200,OK,Stress_Tests 1-18,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,76,0,1
+1795682740687,83,GET Work Order,200,OK,Stress_Tests 1-19,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,83,0,0
+1795682740719,69,GET Work Order,200,OK,Stress_Tests 1-20,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,69,0,0
+1795682740747,70,GET Work Order,200,OK,Stress_Tests 1-21,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,70,0,1
+1795682740771,64,GET items,200,OK,Stress_Tests 1-19,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,64,0,0
+1795682740762,77,GET items,200,OK,Stress_Tests 1-18,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,76,0,1
+1795682740789,74,GET items,200,OK,Stress_Tests 1-20,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,74,0,0
+1795682740818,75,GET items,200,OK,Stress_Tests 1-21,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,75,0,0
+1795682740823,71,GET items,200,OK,Stress_Tests 1-22,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,71,0,0
+1795682740835,73,GET Warehouses,200,OK,Stress_Tests 1-19,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,73,0,1
+1795682740839,70,GET Warehouses,200,OK,Stress_Tests 1-18,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,70,0,1
+1795682740864,72,GET Warehouses,200,OK,Stress_Tests 1-20,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,72,0,0
+1795682740893,72,GET Warehouses,200,OK,Stress_Tests 1-21,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,72,0,2
+1795682740894,71,GET Warehouses,200,OK,Stress_Tests 1-22,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,71,0,1
+1795682740909,75,GET Inventory,200,OK,Stress_Tests 1-18,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,75,0,1
+1795682740909,75,GET Inventory,200,OK,Stress_Tests 1-19,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,75,0,1
+1795682740937,75,GET Inventory,200,OK,Stress_Tests 1-20,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,75,0,0
+1795682740966,91,GET Inventory,200,OK,Stress_Tests 1-21,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,91,0,1
+1795682740966,108,GET Inventory,200,OK,Stress_Tests 1-22,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,108,0,1
+1795682740985,108,GET Work Order,200,OK,Stress_Tests 1-19,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,108,0,0
+1795682740985,117,GET Work Order,200,OK,Stress_Tests 1-18,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,117,0,0
+1795682741012,118,GET Work Order,200,OK,Stress_Tests 1-20,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,118,0,1
+1795682741057,95,GET Work Order,200,OK,Stress_Tests 1-21,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,95,0,1
+1795682741075,90,GET Work Order,200,OK,Stress_Tests 1-22,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,90,0,1
+1795682741093,78,GET items,200,OK,Stress_Tests 1-19,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,77,0,1
+1795682741130,84,GET items,200,OK,Stress_Tests 1-20,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,84,0,1
+1795682741152,76,GET items,200,OK,Stress_Tests 1-21,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,76,0,1
+1795682741156,76,GET items,200,OK,Stress_Tests 1-23,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,76,0,1
+1795682741171,72,GET Warehouses,200,OK,Stress_Tests 1-19,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,72,0,1
+1795682741165,81,GET items,200,OK,Stress_Tests 1-22,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,81,0,1
+1795682741215,77,GET Warehouses,200,OK,Stress_Tests 1-20,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,77,0,0
+1795682741228,94,GET Warehouses,200,OK,Stress_Tests 1-21,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,94,0,1
+1795682741232,93,GET Warehouses,200,OK,Stress_Tests 1-23,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,93,0,1
+1795682741247,83,GET Warehouses,200,OK,Stress_Tests 1-22,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,82,0,0
+1795682741243,87,GET Inventory,200,OK,Stress_Tests 1-19,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,86,0,1
+1795682741292,88,GET Inventory,200,OK,Stress_Tests 1-20,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,88,0,1
+1795682741322,86,GET Inventory,200,OK,Stress_Tests 1-21,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,86,0,1
+1795682741330,79,GET Work Order,200,OK,Stress_Tests 1-19,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,79,0,0
+1795682741326,85,GET Inventory,200,OK,Stress_Tests 1-23,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,85,0,0
+1795682741330,81,GET Inventory,200,OK,Stress_Tests 1-22,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,81,0,0
+1795682741380,73,GET Work Order,200,OK,Stress_Tests 1-20,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,73,0,1
+1795682741408,72,GET Work Order,200,OK,Stress_Tests 1-21,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,72,0,1
+1795682741411,70,GET Work Order,200,OK,Stress_Tests 1-23,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,70,0,1
+1795682741411,73,GET Work Order,200,OK,Stress_Tests 1-22,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,73,0,1
+1795682741454,70,GET items,200,OK,Stress_Tests 1-20,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,70,0,0
+1795682741481,71,GET items,200,OK,Stress_Tests 1-21,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,71,0,0
+1795682741481,75,GET items,200,OK,Stress_Tests 1-23,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,75,0,1
+1795682741485,80,GET items,200,OK,Stress_Tests 1-22,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,80,0,0
+1795682741490,78,GET items,200,OK,Stress_Tests 1-24,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,78,0,1
+1795682741524,78,GET Warehouses,200,OK,Stress_Tests 1-20,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,78,0,0
+1795682741557,74,GET Warehouses,200,OK,Stress_Tests 1-23,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,74,0,0
+1795682741552,81,GET Warehouses,200,OK,Stress_Tests 1-21,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,81,0,1
+1795682741568,76,GET Warehouses,200,OK,Stress_Tests 1-24,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,76,0,1
+1795682741565,80,GET Warehouses,200,OK,Stress_Tests 1-22,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,80,0,0
+1795682741602,80,GET Inventory,200,OK,Stress_Tests 1-20,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,80,0,1
+1795682741632,72,GET Inventory,200,OK,Stress_Tests 1-23,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,72,0,0
+1795682741633,74,GET Inventory,200,OK,Stress_Tests 1-21,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,74,0,0
+1795682741646,90,GET Inventory,200,OK,Stress_Tests 1-22,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,90,0,0
+1795682741645,95,GET Inventory,200,OK,Stress_Tests 1-24,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,95,0,0
+1795682741682,103,GET Work Order,200,OK,Stress_Tests 1-20,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,103,0,1
+1795682741704,100,GET Work Order,200,OK,Stress_Tests 1-23,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,100,0,1
+1795682741708,96,GET Work Order,200,OK,Stress_Tests 1-21,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,96,0,0
+1795682741740,75,GET Work Order,200,OK,Stress_Tests 1-24,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,75,0,1
+1795682741736,79,GET Work Order,200,OK,Stress_Tests 1-22,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,79,0,0
+1795682741804,74,GET items,200,OK,Stress_Tests 1-23,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,74,0,1
+1795682741804,78,GET items,200,OK,Stress_Tests 1-21,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,78,0,1
+1795682741816,76,GET items,200,OK,Stress_Tests 1-22,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,76,0,0
+1795682741815,77,GET items,200,OK,Stress_Tests 1-24,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,77,0,1
+1795682741821,80,GET items,200,OK,Stress_Tests 1-25,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,80,0,1
+1795682741878,71,GET Warehouses,200,OK,Stress_Tests 1-23,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,71,0,1
+1795682741882,72,GET Warehouses,200,OK,Stress_Tests 1-21,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,72,0,1
+1795682741892,72,GET Warehouses,200,OK,Stress_Tests 1-24,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,72,0,1
+1795682741892,87,GET Warehouses,200,OK,Stress_Tests 1-22,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,87,0,1
+1795682741901,81,GET Warehouses,200,OK,Stress_Tests 1-25,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,81,0,1
+1795682741949,77,GET Inventory,200,OK,Stress_Tests 1-23,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,77,0,1
+1795682741955,83,GET Inventory,200,OK,Stress_Tests 1-21,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,83,0,0
+1795682741964,77,GET Inventory,200,OK,Stress_Tests 1-24,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,77,0,1
+1795682741982,81,GET Inventory,200,OK,Stress_Tests 1-25,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,81,0,1
+1795682741979,85,GET Inventory,200,OK,Stress_Tests 1-22,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,85,0,1
+1795682742026,79,GET Work Order,200,OK,Stress_Tests 1-23,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,79,0,1
+1795682742041,80,GET Work Order,200,OK,Stress_Tests 1-24,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,80,0,1
+1795682742038,85,GET Work Order,200,OK,Stress_Tests 1-21,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,85,0,1
+1795682742064,73,GET Work Order,200,OK,Stress_Tests 1-22,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,73,0,0
+1795682742063,76,GET Work Order,200,OK,Stress_Tests 1-25,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,75,0,1
+1795682742105,76,GET items,200,OK,Stress_Tests 1-23,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,76,0,1
+1795682742121,77,GET items,200,OK,Stress_Tests 1-24,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,77,0,1
+1795682742137,73,GET items,200,OK,Stress_Tests 1-22,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,73,0,1
+1795682742139,78,GET items,200,OK,Stress_Tests 1-25,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,78,0,0
+1795682742154,72,GET items,200,OK,Stress_Tests 1-26,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,71,0,0
+1795682742181,84,GET Warehouses,200,OK,Stress_Tests 1-23,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,84,0,1
+1795682742198,77,GET Warehouses,200,OK,Stress_Tests 1-24,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,77,0,1
+1795682742210,79,GET Warehouses,200,OK,Stress_Tests 1-22,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,79,0,1
+1795682742217,77,GET Warehouses,200,OK,Stress_Tests 1-25,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,77,0,1
+1795682742226,75,GET Warehouses,200,OK,Stress_Tests 1-26,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,75,0,0
+1795682742265,80,GET Inventory,200,OK,Stress_Tests 1-23,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,80,0,1
+1795682742275,83,GET Inventory,200,OK,Stress_Tests 1-24,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,83,0,1
+1795682742289,81,GET Inventory,200,OK,Stress_Tests 1-22,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,81,0,1
+1795682742295,78,GET Inventory,200,OK,Stress_Tests 1-25,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,78,0,0
+1795682742301,78,GET Inventory,200,OK,Stress_Tests 1-26,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,78,0,1
+1795682742345,78,GET Work Order,200,OK,Stress_Tests 1-23,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,78,0,1
+1795682742358,81,GET Work Order,200,OK,Stress_Tests 1-24,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,81,0,1
+1795682742370,82,GET Work Order,200,OK,Stress_Tests 1-22,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,82,0,1
+1795682742374,80,GET Work Order,200,OK,Stress_Tests 1-25,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,80,0,0
+1795682742380,79,GET Work Order,200,OK,Stress_Tests 1-26,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,79,0,0
+1795682742423,79,GET items,200,OK,Stress_Tests 1-23,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,79,0,1
+1795682742439,86,GET items,200,OK,Stress_Tests 1-24,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,86,0,1
+1795682742454,72,GET items,200,OK,Stress_Tests 1-25,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,72,0,1
+1795682742459,71,GET items,200,OK,Stress_Tests 1-26,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,71,0,1
+1795682742487,76,GET items,200,OK,Stress_Tests 1-27,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,76,0,0
+1795682742502,85,GET Warehouses,200,OK,Stress_Tests 1-23,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,85,0,1
+1795682742526,73,GET Warehouses,200,OK,Stress_Tests 1-25,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,72,0,1
+1795682742526,73,GET Warehouses,200,OK,Stress_Tests 1-24,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,73,0,0
+1795682742531,79,GET Warehouses,200,OK,Stress_Tests 1-26,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,79,0,0
+1795682742563,94,GET Warehouses,200,OK,Stress_Tests 1-27,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,94,0,1
+1795682742588,79,GET Inventory,200,OK,Stress_Tests 1-23,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,79,0,0
+1795682742599,76,GET Inventory,200,OK,Stress_Tests 1-25,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,76,0,0
+1795682742600,76,GET Inventory,200,OK,Stress_Tests 1-24,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,76,0,0
+1795682742611,73,GET Inventory,200,OK,Stress_Tests 1-26,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,73,0,0
+1795682742657,81,GET Inventory,200,OK,Stress_Tests 1-27,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,81,0,1
+1795682742676,77,GET Work Order,200,OK,Stress_Tests 1-24,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,77,0,1
+1795682742668,91,GET Work Order,200,OK,Stress_Tests 1-23,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,91,0,0
+1795682742685,80,GET Work Order,200,OK,Stress_Tests 1-26,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,80,0,0
+1795682742675,91,GET Work Order,200,OK,Stress_Tests 1-25,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,91,0,1
+1795682742739,75,GET Work Order,200,OK,Stress_Tests 1-27,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,75,0,0
+1795682742753,78,GET items,200,OK,Stress_Tests 1-24,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,78,0,1
+1795682742766,70,GET items,200,OK,Stress_Tests 1-26,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,70,0,0
+1795682742766,80,GET items,200,OK,Stress_Tests 1-25,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,80,0,0
+1795682742815,81,GET items,200,OK,Stress_Tests 1-27,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,81,0,0
+1795682742820,81,GET items,200,OK,Stress_Tests 1-28,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,81,0,1
+1795682742831,75,GET Warehouses,200,OK,Stress_Tests 1-24,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,75,0,0
+1795682742836,80,GET Warehouses,200,OK,Stress_Tests 1-26,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,80,0,1
+1795682742847,76,GET Warehouses,200,OK,Stress_Tests 1-25,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,76,0,0
+1795682742896,75,GET Warehouses,200,OK,Stress_Tests 1-27,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,75,0,0
+1795682742907,74,GET Inventory,200,OK,Stress_Tests 1-24,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,74,0,0
+1795682742902,80,GET Warehouses,200,OK,Stress_Tests 1-28,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,80,0,0
+1795682742916,70,GET Inventory,200,OK,Stress_Tests 1-26,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,70,0,1
+1795682742924,78,GET Inventory,200,OK,Stress_Tests 1-25,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,78,0,0
+1795682742972,81,GET Inventory,200,OK,Stress_Tests 1-27,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,81,0,1
+1795682742987,84,GET Work Order,200,OK,Stress_Tests 1-26,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,84,0,0
+1795682742982,89,GET Inventory,200,OK,Stress_Tests 1-28,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,89,0,1
+1795682742982,90,GET Work Order,200,OK,Stress_Tests 1-24,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,90,0,1
+1795682743003,85,GET Work Order,200,OK,Stress_Tests 1-25,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,85,0,0
+1795682743053,87,GET Work Order,200,OK,Stress_Tests 1-27,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,87,0,1
+1795682743072,72,GET Work Order,200,OK,Stress_Tests 1-28,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,72,0,0
+1795682743072,73,GET items,200,OK,Stress_Tests 1-26,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,73,0,0
+1795682743089,72,GET items,200,OK,Stress_Tests 1-25,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,72,0,1
+1795682743140,78,GET items,200,OK,Stress_Tests 1-27,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,78,0,1
+1795682743144,76,GET items,200,OK,Stress_Tests 1-28,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,76,0,1
+1795682743145,75,GET Warehouses,200,OK,Stress_Tests 1-26,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,75,0,1
+1795682743156,76,GET items,200,OK,Stress_Tests 1-29,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,76,0,1
+1795682743161,79,GET Warehouses,200,OK,Stress_Tests 1-25,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,78,0,1
+1795682743218,76,GET Warehouses,200,OK,Stress_Tests 1-27,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,76,0,0
+1795682743221,75,GET Inventory,200,OK,Stress_Tests 1-26,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,75,0,0
+1795682743221,76,GET Warehouses,200,OK,Stress_Tests 1-28,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,76,0,0
+1795682743240,79,GET Inventory,200,OK,Stress_Tests 1-25,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,79,0,0
+1795682743233,87,GET Warehouses,200,OK,Stress_Tests 1-29,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,87,0,0
+1795682743294,80,GET Inventory,200,OK,Stress_Tests 1-27,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,80,0,0
+1795682743297,79,GET Inventory,200,OK,Stress_Tests 1-28,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,79,0,1
+1795682743296,83,GET Work Order,200,OK,Stress_Tests 1-26,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,83,0,1
+1795682743320,78,GET Inventory,200,OK,Stress_Tests 1-29,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,78,0,0
+1795682743320,81,GET Work Order,200,OK,Stress_Tests 1-25,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,81,0,0
+1795682743376,71,GET Work Order,200,OK,Stress_Tests 1-28,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,71,0,1
+1795682743379,70,GET items,200,OK,Stress_Tests 1-26,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,70,0,0
+1795682743374,75,GET Work Order,200,OK,Stress_Tests 1-27,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,75,0,0
+1795682743398,70,GET Work Order,200,OK,Stress_Tests 1-29,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,70,0,1
+1795682743450,65,GET items,200,OK,Stress_Tests 1-27,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,65,0,0
+1795682743450,66,GET Warehouses,200,OK,Stress_Tests 1-26,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,66,0,0
+1795682743447,72,GET items,200,OK,Stress_Tests 1-28,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,72,0,0
+1795682743468,75,GET items,200,OK,Stress_Tests 1-29,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,75,0,0
+1795682743487,70,GET items,200,OK,Stress_Tests 1-30,text,true,,754,262,5,5,http://greenlife.localhost:8000/api/resource/Item,70,0,0
+1795682743516,71,GET Inventory,200,OK,Stress_Tests 1-26,text,true,,2969,372,5,5,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,71,0,0
+1795682743520,72,GET Warehouses,200,OK,Stress_Tests 1-28,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,72,0,0
+1795682743515,89,GET Warehouses,200,OK,Stress_Tests 1-27,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,89,0,1
+1795682743543,76,GET Warehouses,200,OK,Stress_Tests 1-29,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,76,0,1
+1795682743557,74,GET Warehouses,200,OK,Stress_Tests 1-30,text,true,,859,267,5,5,http://greenlife.localhost:8000/api/resource/Warehouse,74,0,0
+1795682743587,80,GET Work Order,200,OK,Stress_Tests 1-26,text,true,,3527,288,5,5,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,80,0,1
+1795682743593,76,GET Inventory,200,OK,Stress_Tests 1-28,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,76,0,0
+1795682743604,76,GET Inventory,200,OK,Stress_Tests 1-27,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,76,0,1
+1795682743620,68,GET Inventory,200,OK,Stress_Tests 1-29,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,68,0,0
+1795682743631,75,GET Inventory,200,OK,Stress_Tests 1-30,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,75,0,1
+1795682743669,71,GET Work Order,200,OK,Stress_Tests 1-28,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,71,0,1
+1795682743681,80,GET Work Order,200,OK,Stress_Tests 1-27,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,79,0,0
+1795682743688,84,GET Work Order,200,OK,Stress_Tests 1-29,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,84,0,1
+1795682743707,91,GET Work Order,200,OK,Stress_Tests 1-30,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,91,0,0
+1795682743740,88,GET items,200,OK,Stress_Tests 1-28,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,88,0,0
+1795682743772,65,GET items,200,OK,Stress_Tests 1-29,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,65,0,1
+1795682743761,76,GET items,200,OK,Stress_Tests 1-27,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,76,0,0
+1795682743798,69,GET items,200,OK,Stress_Tests 1-30,text,true,,754,262,4,4,http://greenlife.localhost:8000/api/resource/Item,69,0,1
+1795682743838,65,GET Warehouses,200,OK,Stress_Tests 1-27,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,65,0,0
+1795682743838,65,GET Warehouses,200,OK,Stress_Tests 1-29,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,65,0,0
+1795682743828,78,GET Warehouses,200,OK,Stress_Tests 1-28,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,78,0,1
+1795682743867,67,GET Warehouses,200,OK,Stress_Tests 1-30,text,true,,859,267,4,4,http://greenlife.localhost:8000/api/resource/Warehouse,67,0,0
+1795682743902,63,GET Inventory,200,OK,Stress_Tests 1-29,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,63,0,0
+1795682743902,63,GET Inventory,200,OK,Stress_Tests 1-27,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,63,0,0
+1795682743905,63,GET Inventory,200,OK,Stress_Tests 1-28,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,63,0,1
+1795682743933,65,GET Inventory,200,OK,Stress_Tests 1-30,text,true,,2969,372,4,4,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,65,0,0
+1795682743965,66,GET Work Order,200,OK,Stress_Tests 1-27,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,66,0,1
+1795682743965,66,GET Work Order,200,OK,Stress_Tests 1-29,text,true,,3527,288,4,4,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,66,0,1
+1795682743969,70,GET Work Order,200,OK,Stress_Tests 1-28,text,true,,3527,288,3,3,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,70,0,0
+1795682743998,65,GET Work Order,200,OK,Stress_Tests 1-30,text,true,,3527,288,3,3,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,65,0,1
+1795682744031,60,GET items,200,OK,Stress_Tests 1-29,text,true,,754,262,3,3,http://greenlife.localhost:8000/api/resource/Item,60,0,0
+1795682744040,61,GET items,200,OK,Stress_Tests 1-28,text,true,,754,262,3,3,http://greenlife.localhost:8000/api/resource/Item,61,0,0
+1795682744063,59,GET items,200,OK,Stress_Tests 1-30,text,true,,754,262,3,3,http://greenlife.localhost:8000/api/resource/Item,59,0,1
+1795682744091,60,GET Warehouses,200,OK,Stress_Tests 1-29,text,true,,859,267,3,3,http://greenlife.localhost:8000/api/resource/Warehouse,60,0,1
+1795682744101,59,GET Warehouses,200,OK,Stress_Tests 1-28,text,true,,859,267,3,3,http://greenlife.localhost:8000/api/resource/Warehouse,59,0,0
+1795682744123,59,GET Warehouses,200,OK,Stress_Tests 1-30,text,true,,859,267,3,3,http://greenlife.localhost:8000/api/resource/Warehouse,59,0,0
+1795682744151,60,GET Inventory,200,OK,Stress_Tests 1-29,text,true,,2969,372,3,3,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,60,0,1
+1795682744160,58,GET Inventory,200,OK,Stress_Tests 1-28,text,true,,2969,372,3,3,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,58,0,1
+1795682744182,59,GET Inventory,200,OK,Stress_Tests 1-30,text,true,,2969,372,3,3,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,59,0,0
+1795682744211,61,GET Work Order,200,OK,Stress_Tests 1-29,text,true,,3527,288,3,3,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,61,0,0
+1795682744218,61,GET Work Order,200,OK,Stress_Tests 1-28,text,true,,3527,288,3,3,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,61,0,1
+1795682744241,57,GET Work Order,200,OK,Stress_Tests 1-30,text,true,,3527,288,2,2,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,57,0,1
+1795682744272,55,GET items,200,OK,Stress_Tests 1-29,text,true,,754,262,2,2,http://greenlife.localhost:8000/api/resource/Item,55,0,0
+1795682744299,54,GET items,200,OK,Stress_Tests 1-30,text,true,,754,262,2,2,http://greenlife.localhost:8000/api/resource/Item,54,0,0
+1795682744327,56,GET Warehouses,200,OK,Stress_Tests 1-29,text,true,,859,267,2,2,http://greenlife.localhost:8000/api/resource/Warehouse,56,0,1
+1795682744354,52,GET Warehouses,200,OK,Stress_Tests 1-30,text,true,,859,267,2,2,http://greenlife.localhost:8000/api/resource/Warehouse,52,0,0
+1795682744383,55,GET Inventory,200,OK,Stress_Tests 1-29,text,true,,2969,372,2,2,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,55,0,1
+1795682744406,54,GET Inventory,200,OK,Stress_Tests 1-30,text,true,,2969,372,2,2,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,54,0,1
+1795682744438,56,GET Work Order,200,OK,Stress_Tests 1-29,text,true,,3527,288,2,2,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,56,0,0
+1795682744461,58,GET Work Order,200,OK,Stress_Tests 1-30,text,true,,3527,288,1,1,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,58,0,0
+1795682744519,59,GET items,200,OK,Stress_Tests 1-30,text,true,,754,262,1,1,http://greenlife.localhost:8000/api/resource/Item,59,0,1
+1795682744578,60,GET Warehouses,200,OK,Stress_Tests 1-30,text,true,,859,267,1,1,http://greenlife.localhost:8000/api/resource/Warehouse,60,0,1
+1795682744638,59,GET Inventory,200,OK,Stress_Tests 1-30,text,true,,2969,372,1,1,http://greenlife.localhost:8000/api/resource/Bin?fields=%5B%22item_code%22%2C%22warehouse%22%2C%22actual_qty%22%2C%22projected_qty%22%2C%22valuation_rate%22%5D,58,0,1
+1795682744697,57,GET Work Order,200,OK,Stress_Tests 1-30,text,true,,3527,288,1,1,http://greenlife.localhost:8000/api/resource/Work%20Order/MFG-WO-2026-00154,57,0,0

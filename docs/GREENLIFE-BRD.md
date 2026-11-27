@@ -1,8 +1,6 @@
-**BUSINESS REQUIREMENTS DOCUMENT (BRD)**
+## BUSINESS REQUIREMENTS DOCUMENT (BRD)**
 
-**Greenlife Pharmaceuticals Nigeria**
-
-**Pharmaceutical Manufacturing and Inventory Management Using an ERP System**
+### Pharmaceutical Manufacturing and Inventory Management Using an ERP System**
 
 | Document attribute    | Details                                   |
 | --------------------- | ----------------------------------------- |
@@ -10,7 +8,7 @@
 | Organization          | Greenlife Pharmaceuticals Nigeria         |
 | Project               | ERPNext System Implementation             |
 | Version               | 1.0                                       |
-| Baseline Date         | 11 November 2026                          |
+| Date                  | 11 November 2026                          |
 | Prepared By           | Michael Adeyeye                           |
 | System Under Test     | ERPNext with manufacturing customizations |
 | Primary Product Types | Tablets and Capsules                      |
@@ -18,9 +16,7 @@
 
 **1. Business Objectives**
 
-The purpose of this BRD is to establish the business requirements that will guide system configuration assessment, test planning, test design, test execution, and quality reporting.
-
-The project will evaluate ERPNext standard capabilities alongside proposed pharmaceutical-specific customizations. The objective is to determine whether the configured system supports the required business controls and behaves reliably under normal, exceptional, and negative conditions.
+The purpose of this BRD is to establish the business requirements that will guide system configuration assessment, test planning, test design, test execution, and quality reporting. This project will determine whether the configured ERP system supports the required Greenlife pharmaceuticals business processes.
 
 The following objectives are to be fulfilled:
 
@@ -37,6 +33,10 @@ The following objectives are to be fulfilled:
 | GL-OBJ-009 | Improve production planning            | Production quantities and material requirements can be calculated from approved BOMs.                                       |
 | GL-OBJ-010 | Establish reliable quality evidence    | Business requirements can be verified through repeatable tests and documented results.                                      |
 
+                                   |
+
+---
+
 **2. Background**
 
 Pharmaceutical manufacturing involves multiple interdependent activities. A failure in material identification, stock status control, production recording, or batch traceability can affect product quality and the reliability of manufacturing records.
@@ -50,6 +50,8 @@ Greenlife's ERP environment is modelled around two primary business functions:
 The ERP system is expected to connect these activities so that material movements and production transactions can be traced to the relevant batches, users, and business records.
 
 The solution will use ERPNext as its foundation, with pharmaceutical-specific customizations proposed where standard functionality does not adequately satisfy the requirements.
+
+---
 
 **3. Project Scope**
 
@@ -206,8 +208,6 @@ The following roles are proposed for the quality engineering. They must be given
 
 10. Inventory availability is updated according to the approved disposition.
 
-**Expected control:** Materials that have not received the required approval must not be available for unrestricted production use.
-
 **6.2 Inventory Management**
 
 1.  Materials are registered against the appropriate item records.
@@ -224,8 +224,6 @@ The following roles are proposed for the quality engineering. They must be given
 
 7.  Inventory balances are reconciled with recorded transactions.
 
-**Expected control:** Inventory quantities and stock statuses must remain consistent with authorised transactions.
-
 **6.3 Production Planning**
 
 1.  A production requirement is identified.
@@ -241,8 +239,6 @@ The following roles are proposed for the quality engineering. They must be given
 6.  A Work Order is created.
 
 7.  Materials are reserved or transferred for production.
-
-**Expected control:** Production must use the applicable approved product specification and BOM version.
 
 **6.4 Manufacturing Execution**
 
@@ -262,8 +258,6 @@ The following roles are proposed for the quality engineering. They must be given
 
 8.  A finished-product batch is created.
 
-**Expected control:** The system must retain a traceable relationship between the production order, material batches, manufacturing records, and finished-product batch.
-
 **6.5 Finished-Product Inspection and Release**
 
 1.  The finished-product batch is presented for inspection.
@@ -277,8 +271,6 @@ The following roles are proposed for the quality engineering. They must be given
 5.  Only an appropriately authorised user can perform the applicable release action.
 
 6.  Approved stock is transferred or made available in the approved finished-goods inventory.
-
-**Expected control:** A batch that has not passed the required quality disposition must not become unrestricted approved stock.
 
 **7. Business Requirements**
 

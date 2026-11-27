@@ -1,5 +1,3 @@
-# GREENLIFE PHARMACEUTICALS NIGERIA
-
 # TEST EXECUTION REPORT
 
 **Application:** ERPNext – Greenlife Pharmaceuticals Case Study  
@@ -9,7 +7,7 @@
 **Report Date:** 15 November 2026  
 **Prepared By:** Michael Adeyeye
 **Document ID:** GLP-TEST-REPORT-001  
-**Version:** 0.1 – Initial Draft
+**Version:** 0.1
 
 ---
 
@@ -36,16 +34,6 @@ Particular attention was given to identifying potential control gaps where syste
 Where an observation is based on a proposed business control rather than a verified native ERPNext requirement, it is identified as a potential control gap requiring further validation.
 
 This project represents a controlled portfolio case study using a locally configured ERPNext environment. It does not represent a verified implementation or production deployment at Greenlife Pharmaceuticals Nigeria.
-
-## 1.1 How This Report Is Organised
-
-- **Section 2:** Summary of findings and their classifications.
-- **Section 3:** Detailed findings, including observed behaviour, impact, probable causes, recommendations and retest criteria.
-- **Section 4:** Cross-cutting observations and recommendations.
-- **Section 5:** Prioritised action plan.
-- **Section 6:** Testing limitations, conclusion and verdict.
-
----
 
 # 2. Summary of Findings
 
@@ -153,20 +141,6 @@ Consequently, the intended test of unauthorised access to restricted manufacturi
 - The role-based access test remains incomplete.
 - The intended assessment of restricted manufacturing and inventory operations could not be performed.
 
-### Probable Cause (For Investigation)
-
-The root cause has not been established.
-
-Possible investigation areas include:
-
-- Email delivery configuration in the local ERPNext environment.
-- Expired or invalid authentication links.
-- Incorrect hostname or site URL in the generated login link.
-- Authentication token validation.
-- Browser or session-related restrictions.
-
-These are investigation possibilities and not confirmed causes.
-
 ### Recommended Solution
 
 - Investigate the local ERPNext email and authentication configuration.
@@ -174,25 +148,10 @@ These are investigation possibilities and not confirmed causes.
 - Confirm that the link is valid and has not expired.
 - Repeat the authentication test using a dedicated test account.
 - Verify access permissions after successful login.
-- If the issue is environment-related, document it as an environment blocker rather than a confirmed ERPNext product defect.
-
-### Retest / Acceptance Criteria
-
-- The separate test account can authenticate successfully.
-- The account can access the functions permitted by its assigned roles.
-- Restricted operations are inaccessible to unauthorised users.
-- Access restrictions are enforced by the application and not merely hidden in the interface.
-- Authentication failures provide useful diagnostic information.
-
-**Evidence Required:** Test account identifier, authentication email with sensitive information redacted, screenshot of the failed login attempt and browser response.
 
 ---
 
-# 4. Cross-Cutting Observations and Recommendations
-
-The exploratory assessment identified areas where additional configuration, validation and business-rule enforcement may be required.
-
-### 4.1 Quality Disposition and Inventory Control
+### 4.1 Quality Inspection and Inventory Control
 
 The relationship between Quality Inspection results and inventory transactions requires further investigation.
 
@@ -304,7 +263,5 @@ Before any production-readiness recommendation can be made:
 5. Identified issues must be retested.
 6. API, database, performance and automated regression testing must be completed as planned.
 7. Relevant business stakeholders must review and approve the applicable requirements and release controls.
-
-**Final QA Position:** The current findings demonstrate areas of risk and incomplete verification. A production-readiness decision remains outside the scope of this initial exploratory assessment.
 
 ---

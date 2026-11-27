@@ -4,3 +4,10 @@ playwright-report
 test-results
 coverage
 package-lock.json
+*.jtl
+*.log
+*.min.js
+*.min.css
+playwright/.cache/
+build/
+tests/performance/jmeter/reports/

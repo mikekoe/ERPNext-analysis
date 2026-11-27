@@ -1,5 +1,13 @@
 import { test, expect } from '@playwright/test';
 
+// Login tests must start without an authenticated session.
+test.use({
+  storageState: {
+    cookies: [],
+    origins: [],
+  },
+});
+
 /**
  * Authentication interface and access to ERPNext.
  */
@@ -18,11 +26,9 @@ test.describe('ERPNext Authentication', () => {
     await page.getByRole('textbox', { name: 'Password' }).fill(password!);
     await page.getByRole('button', { name: 'Continue' }).click();
 
-    await page.getByRole('link', { name: 'ERPNext' }).click();
-    await page.getByRole('button', { name: /Search/ }).click();
-
-    //verify access to the ERPNext Desk after successful login
+    // Verify that successful login redirects to the ERPNext Desk.
     await expect(page.getByRole('button', { name: /Search/ })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'ERPNext' })).toBeVisible();
   });
 
   test('should display the standard login interface', async ({ page }) => {
@@ -110,10 +116,14 @@ test.describe('ERPNext Authentication', () => {
     //confirm logout by clicking the "Yes" button on the confirmation dialog
     await expect(page.getByRole('heading', { name: 'Confirm' })).toBeVisible();
     await page.getByRole('button', { name: 'Yes' }).click();
+
+    // Verify that the user is redirected to the login page after logout.
+    await expect(page).toHaveURL(/\/login/);
+    await expect(page.getByRole('heading', { name: 'Sign In' })).toBeVisible();
   });
 
   //Ensure an authenticated session is still valid after a page refresh
-  test('maintain authenticated session after page refresh', async ({ page }) => {
+  test('maintain login after page refresh', async ({ page }) => {
     const username = process.env.ERP_USERNAME;
     const password = process.env.ERP_PASSWORD;
 

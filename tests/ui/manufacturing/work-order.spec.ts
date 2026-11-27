@@ -48,7 +48,6 @@ test('Create and start a Work Order for a finished product', async ({ page }) =>
 
   // Select the WIP warehouse.
   const wipWarehouseField = page.locator('.frappe-control[data-fieldname="wip_warehouse"]');
-
   const wipWarehouseInput = wipWarehouseField.getByRole('combobox');
 
   await wipWarehouseInput.fill('Work In Progress');
@@ -65,7 +64,6 @@ test('Create and start a Work Order for a finished product', async ({ page }) =>
 
   // Select the Finished Goods warehouse.
   const fgWarehouseField = page.locator('.frappe-control[data-fieldname="fg_warehouse"]');
-
   const fgWarehouseInput = fgWarehouseField.getByRole('combobox');
 
   await fgWarehouseInput.fill('Finished Goods');
@@ -82,44 +80,32 @@ test('Create and start a Work Order for a finished product', async ({ page }) =>
 
   // Verify the BOM-required items.
   const requiredItemsField = page.locator('.frappe-control[data-fieldname="required_items"]');
-
   const requiredItemsGrid = requiredItemsField.locator('.form-grid');
 
   const apiRow = requiredItemsGrid.locator('.grid-row[data-idx="1"]');
   const packagingRow = requiredItemsGrid.locator('.grid-row[data-idx="2"]');
 
   await expect(apiRow).toContainText('API-001');
-  await expect(packagingRow).toContainText('PKG-001');
+  await expect(packagingRow).toContainText('PKG-003');
 
-  // Configure source warehouses one row at a time.
-  for (const row of [apiRow, packagingRow]) {
-    await row.locator('.btn-open-row').click();
+  // Set the source warehouse for API-001 (first required item).
+  await apiRow.locator('.data-row > div:nth-child(8)').click();
 
-    const sourceWarehouse = row.locator('.form-in-grid input[data-fieldname="source_warehouse"]');
+  const apiSourceWarehouse = apiRow.locator('input[data-fieldname="source_warehouse"]');
 
-    await expect(sourceWarehouse).toBeVisible();
+  await expect(apiSourceWarehouse).toBeVisible();
 
-    await sourceWarehouse.fill('Work In Progress');
+  await apiSourceWarehouse.fill('Raw materials');
 
-    const warehouseSuggestion = page.locator('[role="listbox"]:visible').getByRole('option', {
-      name: 'Work In Progress - GP',
-      exact: true,
-    });
+  const apiWarehouseOption = page.locator('[role="listbox"]:visible').getByRole('option', {
+    name: 'Raw materials - GP',
+    exact: true,
+  });
 
-    await expect(warehouseSuggestion).toBeVisible();
-    await warehouseSuggestion.click();
+  await expect(apiWarehouseOption).toBeVisible();
+  await apiWarehouseOption.click();
 
-    await expect(sourceWarehouse).toHaveValue('Work In Progress - GP');
-
-    // Collapse the current row before opening another one.
-    await row
-      .getByRole('button', {
-        name: 'Collapse',
-      })
-      .click();
-
-    await expect(page.locator('#freeze')).toBeHidden();
-  }
+  await expect(apiSourceWarehouse).toHaveValue('Raw materials - GP');
 
   // Save and submit the Work Order.
   await page.getByRole('button', { name: 'Save' }).click();
@@ -129,7 +115,6 @@ test('Create and start a Work Order for a finished product', async ({ page }) =>
   await page.getByRole('button', { name: 'Submit' }).click();
 
   await expect(page.getByRole('button', { name: 'Yes' })).toBeVisible();
-
   await page.getByRole('button', { name: 'Yes' }).click();
 
   // Start the submitted Work Order.
@@ -148,48 +133,30 @@ test('Create and start a Work Order for a finished product', async ({ page }) =>
 
   await expect(page.getByRole('heading', { name: 'Select Quantity' })).toBeHidden();
 
-  // ====== Configure the generated Material Transfer for Manufacture ========/
+  // Configure the generated Material Transfer for Manufacture.
   const itemsGrid = page.locator('.frappe-control[data-fieldname="items"]');
   const firstItemRow = itemsGrid.locator('.grid-row[data-idx="1"]');
   const secondItemRow = itemsGrid.locator('.grid-row[data-idx="2"]');
 
-  const barcode = page.locator('input[data-fieldname="barcode"]:visible');
-  const targetWarehouse = page.locator('input[data-fieldname="t_warehouse"]:visible');
+  // Confirm the generated transfer contains the expected BOM components.
+  await expect(firstItemRow).toContainText('API-001');
+  await expect(secondItemRow).toContainText('PKG-003');
 
-  // Configure each item row individually.
-  for (const row of [firstItemRow, secondItemRow]) {
-    // Open the current row's expanded editor.
-    await expect(row).toBeVisible();
+  // Verify source warehouse mapping inherited from the Work Order.
+  await expect(firstItemRow).toContainText('Raw materials - GP');
+  await expect(secondItemRow).toContainText('Packaging Materials - GP');
 
-    // Expand the current item row.
-    await row.locator('.data-row > div:nth-child(8)').click();
+  // Both components must be transferred into Work In Progress.
+  await expect(firstItemRow).toContainText('Work In Progress - GP');
+  await expect(secondItemRow).toContainText('Work In Progress - GP');
 
-    await expect(page.getByRole('button', { name: 'Collapse', exact: true })).toBeVisible();
-
-    // Let Frappe finish moving focus to the first field.
-    await expect(barcode).toBeFocused();
-    await expect(targetWarehouse).toHaveValue('Work In Progress - GP');
-    await targetWarehouse.click();
-    await expect(targetWarehouse).toBeFocused();
-    await targetWarehouse.press('ControlOrMeta+A');
-    await targetWarehouse.press('Backspace');
-    const option = page
-      .locator('[role="listbox"]:visible')
-      .getByRole('option', { name: 'Finished Goods - GP', exact: true });
-    await expect(option).toBeVisible({ timeout: 10000 });
-    await option.click();
-    await expect(targetWarehouse).toHaveValue('Finished Goods - GP');
-
-    // Close the current row before opening the next.
-    await page.getByRole('button', { name: 'Collapse', exact: true }).click();
-
-    // Do not open the next row until the editor has closed.
-    await expect(page.locator('#freeze')).toBeHidden();
-  }
-
+  // Save and submit the Material Transfer for Manufacture.
   await page.getByRole('button', { name: 'Save' }).click();
+
   await expect(page).toHaveURL(/MAT-STE-\d{4}-\d+/);
+
   await page.getByRole('button', { name: 'Submit' }).click();
+
   await expect(page.getByRole('button', { name: 'Yes' })).toBeVisible();
   await page.getByRole('button', { name: 'Yes' }).click();
 
@@ -204,22 +171,23 @@ test('Create and start a Work Order for a finished product', async ({ page }) =>
 
   await page.getByRole('button', { name: 'Create', exact: true }).click();
 
-  // ==== Redirect to Manufacture stock entry to complete work order ======/
+  // Configure the generated Manufacture Stock Entry.
   await expect(page.getByRole('tabpanel', { name: 'Details' })).toBeVisible();
 
-  // Locate the third item row in the Manufacture Stock Entry.
   const manufactureItemsGrid = page.locator('.frappe-control[data-fieldname="items"]');
-
   const thirdItemRow = manufactureItemsGrid.locator('.grid-row[data-idx="3"]');
 
-  // Expand the third row to configure its Batch No.
+  // Confirm this is the finished-product row before assigning its batch.
   await expect(thirdItemRow).toBeVisible();
+  await expect(thirdItemRow).toContainText('TAB-001');
 
+  // Expand the finished-product row to configure its Batch No.
   await thirdItemRow.locator('.data-row > div:nth-child(8)').click();
 
   await expect(page.getByRole('button', { name: 'Collapse', exact: true })).toBeVisible();
 
-  //barcode is auto-focused upon expanding the third row
+  // Barcode is auto-focused upon expanding the row.
+  const barcode = page.locator('input[data-fieldname="barcode"]:visible');
   await expect(barcode).toBeFocused();
 
   // Verify the "Use Serial No / Batch Fields" checkbox is enabled.
@@ -243,20 +211,20 @@ test('Create and start a Work Order for a finished product', async ({ page }) =>
 
   await expect(batchSuggestion).toBeVisible();
   await batchSuggestion.click();
+
   await expect(batchNo).toHaveValue('GLP-TAB-001');
+
   await page.getByRole('button', { name: 'Collapse', exact: true }).click();
   await expect(page.locator('#freeze')).toBeHidden();
 
-  // Save the Manufacture Stock Entry.
+  // Save and submit the Manufacture Stock Entry.
   await page.getByRole('button', { name: 'Save', exact: true }).click();
 
   await expect(page).toHaveURL(/MAT-STE-\d{4}-\d+/);
 
-  // Submit the Manufacture Stock Entry.
   await page.getByRole('button', { name: 'Submit', exact: true }).click();
 
   await expect(page.getByRole('button', { name: 'Yes', exact: true })).toBeVisible();
-
   await page.getByRole('button', { name: 'Yes', exact: true }).click();
 
   // Return to the linked Work Order.
