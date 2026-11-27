@@ -1,9 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-test.use({
-  storageState: '.auth/user.json',
-});
-
 test('Verify Stock Ledger report', async ({ page }) => {
   // Open the Stock Ledger for the reporting period.
   await page.goto(
