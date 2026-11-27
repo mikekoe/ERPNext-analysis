@@ -357,7 +357,7 @@ npm run format          # apply formatting
 
 ERPNext document state is `docstatus` (`0` draft, `1` submitted, `2` cancelled). The scripts assert `docstatus`, business status and stock effects, not only the HTTP status. This also determines how the tests are run
 
-**Refer to the [Workflow] above**
+**Refer to the [Business Workflow] above**
 
 ### Postman Execution Results
 
@@ -406,7 +406,7 @@ Five performance scenarios were documented: baseline, load, three stress configu
 
 <h3>
   <img src="https://jmeter.apache.org/images/jmeter.png" width="24" height="24" alt="JMeter logo"/>
-  🚀 JMeter Performance Test Report
+  JMeter Performance Test Report
 </h3>
 
 <p align="center">
@@ -572,12 +572,9 @@ The three stress scenarios recorded zero errors, with throughput increasing as t
 
 <h3>
   <img src="https://cdn.simpleicons.org/mariadb/003545" alt="MariaDB logo" width="30" />
-  🚀 Maria-Db
+    Maria-Db
 </h3>
 
-<div align="right">
- <img src="https://cdn.simpleicons.org/mariadb/003545" >
-</div>
 *Read-only database validation of purchasing, inventory, batch traceability, manufacturing and cancellation workflows.*
 
 > **Safety:** All database validation was read-only. The test session used `SELECT`, `SHOW` and `DESCRIBE`. No direct SQL `INSERT`, `UPDATE`, `DELETE`, schema changes or other database writes were performed.
@@ -679,6 +676,8 @@ Execution summary
 | [`GREENLIFE-RTM.xlsx`](docs/GREENLIFE-RTM.xlsx)                                                                                 | Requirements traceability matrix          |
 | [`TEST-EXECUTION-REPORT.md`](docs/TEST-EXECUTION-REPORT.md)                                                                     | Recorded execution results                |
 | [`Defect-report.xlsx`](docs/Defect-report.xlsx)                                                                                 | Defects with steps, severity and evidence |
+| [`test-summary-report.md`](docs/test-summary-report.md)                                     | Overall summary of all tests performed and recommendations |
+
 
 ## Observations and limitations
 
