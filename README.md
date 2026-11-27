@@ -568,10 +568,15 @@ The three stress scenarios recorded zero errors, with throughput increasing as t
 
 
 
-## Maria-db Database testing
+## Database testing
+
+<h3>
+  <img src="https://cdn.simpleicons.org/mariadb/003545" alt="MariaDB logo" width="30" />
+  🚀 Maria-Db
+</h3>
 
 <div align="right">
- <img src="https://cdn.simpleicons.org/mariadb/003545" alt="MariaDB logo" width="92" />
+ <img src="https://cdn.simpleicons.org/mariadb/003545" >
 </div>
 *Read-only database validation of purchasing, inventory, batch traceability, manufacturing and cancellation workflows.*
 
